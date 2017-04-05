@@ -1,50 +1,400 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <link rel="stylesheet" href="css/eou.css">
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal eou">
+      <div id="slide-name">INTRO</div>
+      <div class="slides">
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+        <!-- Introduction -->
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+        <section id="INTRO">
+          <h1>The End of Unsafety</h1>
+          <hr>
+          <h2>The Past, Present and Future</h2>
+          <sup>of</sup>
+          <h2>The Rust Programming Language</h2>
+        </section>
+
+        <section id="BARB"
+                 data-background-image="images/barbarians.jpg">
+        </section>
+
+        <section id="HAVENS"
+                 data-background-image="images/grey-havens.jpg">
+        </section>
+
+	<section id="WHO" style="height: 100%;">
+          <img src="images/rust-logo-white.svg"
+               style="height: 50%;">
+          <div id="nametable">
+            <div>Brian Anderson<br><small>&lt;banderson@mozilla.com&gt;</small></div>
+            <div>Alex Crichton<br><small>&lt;acrichton@mozilla.com&gt;</small></div>
+          </div>
+        </section>
+
+        <section id="LINK">
+          <p>https://github.com/brson/the-end-of-unsafety</p>
+          <br>
+          <p>~&#x2000; slides, notes, links &#x2000;~</p>
+        </section>
+
+        <section id="WHATRUST" data-transition="slide-in fade-out" data-transition-speed="fast">
+          <h3>Rust</h3>
+          <ul>
+            <li>Top-tier performance &#x2000; <span>(like C/C++ or better)</span></li>
+            <li>Memory safe &#x2000; <span>(no crashes)</span></li>
+            <li>No runtime, no GC &#x2000; <span>(runs everywhere)</span></li>
+            <li>Targets the same use cases as C/C++ &#x2000; <span>(all of them)</span></li>
+            <li>Sponsored by Mozilla &#x2000; <span>(makers of Firefox)</span></li>
+          </ul>
+          <br><br>
+          <p>~&#x2000; www.rust-lang.org &#x2000;~</p>
+        </section>
+
+	<section id="OV" data-transition="none">
+          <h3>Timeline of the End of Unsafety</h3>
+          <div class="timeline">
+            <div>
+              <span class="x"></span>
+              <span class="x"></span>
+              <span class="x"><span class="x small"></span></span>
+            </div>
+            <p>&nbsp;</p>
+          </div>
+        </section>
+
+	<section id="OV1" data-transition="none">
+          <h3>The Age of Unsafety</h3>
+          <div class="timeline">
+            <div>
+              <span class="x"></span>
+              <span></span>
+              <span><span></span></span>
+            </div>
+            <p>1972 &nbsp; → &nbsp; whenever</p>
+          </div>
+        </section>
+
+	<section id="OV2" data-transition="none">
+          <h3>The Creation of Rust</h3>
+          <div class="timeline">
+            <div>
+              <span></span>
+              <span class="x"></span>
+              <span><span></span></span>
+            </div>
+            <p>2009 &nbsp; → &nbsp; present</p>
+          </div>
+        </section>
+
+	<section data-transition="none">
+          <h3>Rust Today</h3>
+          <div class="timeline">
+            <div>
+              <span></span>
+              <span></span>
+              <span><span class="x"></span></span>
+            </div>
+            <p>right now!</p>
+          </div>
+        </section>
+
+	<section data-transition="none">
+          <h3>The Future of Rust</h3>
+          <div class="timeline">
+            <div>
+              <span></span>
+              <span></span>
+              <span class="x"><span></span></span>
+            </div>
+            <p>present &nbsp; → &nbsp; the glorious future</p>
+          </div>
+        </section>
+
+        <section>
+          Disclaimers
+        </section>
+
+        <!-- The Age of Unsafety -->
+
+	<section>
+          <h3>The Age of Unsafety</h3>
+          <div class="timeline">
+            <div>
+              <span class="x"></span>
+              <span></span>
+              <span><span></span></span>
+            </div>
+            <p>1972 &nbsp; → &nbsp; whenever</p>
+          </div>
+        </section>
+
+        <section class="e0">
+          <h3>What is "<span style="color: red;">unsafe</span>"?</h3>
+        </section>
+
+        <section>
+          <h3>Memory safety</h3>
+
+          <blockquote>
+            The state of being protected from various software bugs
+            and security vulnerabilities when dealing with memory
+            access, such as buffer overflows and dangling pointers.
+          </blockquote>
+          <cite>&mdash; Wikipedia</cite>
+        </section>
+
+        <section>
+          <h3>Memory safety errors</h3>
+          <ul>
+            <li>Buffer overflow</li>
+            <li>Stack overflow</li>
+            <li>Use after free</li>
+            <li>Double free</li>
+            <li>Data races</li>
+            <li>Segmentation fault</li>
+          </ul>
+        </section>
+
+        <section>
+          <blockquote>
+            Let's
+            be <span id="honest"><span>honest</span><span class="fragment">honest</span></span>,
+            if you need segfault protection, you're a bad programmer.
+          </blockquote>
+          <cite>&mdash; Anonymous good<br>programmer<br>on the internet</cite>
+        </section>
+
+        <section>
+          <h3>A real-world example</h3>
+        </section>
+
+        <section>
+          CVE graph
+        </section>
+
+        <section>
+          curl
+        </section>
+
+        <section>
+          debian archive analysis
+        </section>
+
+        <section>
+          why people continue to use C
+        </section>
+
+        <!-- The Creation of Rust -->
+
+	<section>
+          <h3>The Creation of Rust</h3>
+          <div class="timeline">
+            <div>
+              <span></span>
+              <span class="x"></span>
+              <span><span></span></span>
+            </div>
+            <p>2009 &nbsp; → &nbsp; present</p>
+          </div>
+        </section>
+
+        <section style="width: 80%; height: 80%;">
+          <img src="images/firefox.png"
+               style="height: 100%;">
+        </section>
+
+        <section>
+          Firefox (logo) loc
+          Chrome (logo) loc
+        </section>
+
+        <section>
+          Firefox (logo) CVEs
+          Chrome (logo) CVEs
+        </section>
+
+        <section>
+          some roc quote
+        </section>
+
+        <section>
+          Brendan and Graydon headshots
+        </section>
+
+        <section>
+          <h3>Rust's original design / requirements</h3>
+          <ul>
+            <li>Memory safety
+            <li>Thread-local, garbage collected heaps
+            <li>CSP-style concurrency (ala Go)</li>
+          </ul>
+          <!-- not at all like C/C++ - sufficient for a web browser? -->
+        </section>
+
+        <section>
+          Original Rust
+        </section>
+
+        <section>
+          Modern Rust Sneak Preview
+        </section>
+
+        <section>
+          <h3>Rust's key design problem</h3>
+
+          <p>How can I maintain memory safety in a concurrent program
+             without a global GC?</p>
+
+        </section>
+
+        <section>
+          Niko headshot
+        </section>
+
+        <section>
+        </section>
+
+        <section>
+          <h3>Rust's actual design / requirements</h3>
+          <ul>
+            <li>Memory safety</li>
+            <li>No GC or runtime at all</li>
+            <li>Traditional OS threads and concurrency</li>
+          </ul>
+          <!-- todo why? perf -->
+        </section>
+
+        <section>
+          Zero-cost abstractions
+        </section>
+
+        <!-- Rust Today -->
+
+	<section>
+          <h3>Rust Today</h3>
+          <div class="timeline">
+            <div>
+              <span></span>
+              <span></span>
+              <span><span class="x"></span></span>
+            </div>
+            <p>right now!</p>
+          </div>
+        </section>
+
+        <!-- The Future of Rust -->
+
+	<section id="SFUT">
+          <h3>The Future of Rust</h3>
+          <div class="timeline">
+            <div>
+              <span></span>
+              <span></span>
+              <span class="x"><span></span></span>
+            </div>
+            <p>present &nbsp; → &nbsp; the glorious future</p>
+          </div>
+        </section>
+
+        <section id="CHAL">
+          <h3>Rust soft challenges</h3>
+          <ul>
+            <li>Acceptance / learning curve</li>
+            <li>Competition from other languages</li>
+            <li>Missing the market window</li>
+          </ul>
+        </section>
+
+        <section id="CHCPP">
+          <h3>Challenges for Rust replacing C++</h3>
+          <ul>
+            <li>C++ language interop</li>
+            <li>Build system integration</li>
+          </ul>
+        </section>
+
+        <section id="CHC">
+          <h3>Challenges for Rust replacing C</h3>
+          <ul>
+            <li>ABI stability &#x2000; <span>(upgradable dlls)</span></li>
+            <li>Monomorphization &#x2000; <span>(binary bloat)</span></li>
+            <li>Unstructured control flow &#x2000; <span>(setjmp / longjmp, goto)</span></li>
+          </ul>
+        </section>
+
+        <section id="SUCC">
+          <h3>Why Rust will succeed</h3>
+          <ul>
+            <li>Incredible tech</li>
+            <li>Production focus</li>
+            <li>Flexible ecosystem design</li>
+            <li>Expanded systems audience</li>
+            <li>Strong culture</li>
+          </ul>
+        </section>
+
+        <section id="NEXT">
+          <h3>What's coming up in Rust?</h3>
+          <ul>
+            <li class="fragment">Improved ergonomics</li>
+            <li class="fragment">`tokio` &#x2000; <span>(really fast async I/O)</span></li>
+            <li class="fragment">Docs &#x2000; <span>(reference, APIs, guidelines)</span></li>
+            <li class="fragment">Tooling &#x2000; <span>(IDEs, embedded)</span></li>
+            <li class="fragment">Language interop &#x2000; <span>(incl. JS, Ruby, C++)</span></li>
+          </ul>
+        </section>
+
+        <section id="PRED">
+          Predictions
+        </section>
+
+        <!-- Outroduction -->
+
+	<section id="OUTRO" style="height: 100%;">
+          <img src="images/rust-logo-white.svg"
+               style="height: 50%;">
+          <div id="nametable">
+            <div>Brian Anderson<br><small>&lt;banderson@mozilla.com&gt;</small></div>
+            <div>Alex Crichton<br><small>&lt;acrichton@mozilla.com&gt;</small></div>
+          </div>
+        </section>
+
+        <section>
+          <h1>The End of Unsafety</h1>
+          <img src="images/rust-logo-white.svg">
+          <p>https://github.com/brson/the-end-of-unsafety</p>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/eou.js"></script>
+
+  </body>
 </html>

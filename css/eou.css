@@ -1,0 +1,158 @@
+.eou h3 {
+    margin-bottom: 4rem;
+}
+
+.eou li span {
+    opacity: 0.7;
+}
+
+.eou section img {
+    border: 0px; background: none;
+    box-shadow: none;
+}
+
+.eou table td {
+    text-align: center;
+}
+
+.eou #nametable {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.eou #nametable > div {
+    flex-grow: 1;
+}
+
+.eou #nametable small {
+    margin-top: 1rem;
+    font-size: 80%;
+}
+
+.eou cite {
+    font-size: 2rem;
+    color: #999;
+    float: right;
+    margin-top: 2rem;
+}
+
+#slide-name {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: gray;
+    font-size: 4rem;
+    z-index: 1;
+}
+
+.eou #honest > :first-child {
+    display: inline-block;
+    width: 0;
+    overflow: visible;
+}
+
+.eou #honest > :nth-child(2) {
+    color: orange;
+}
+
+
+
+/* Timeline stuff */
+
+.eou .timeline > div:first-child {
+    margin-top: 8rem;
+    height: 8rem;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid white;
+    width: 100%;
+}
+
+.eou .timeline > :first-child > span {
+    border: 1px solid white;
+    text-align: left;
+    line-height: 8rem;
+}
+
+.eou .timeline > p {
+    margin-top: 4rem;
+}
+
+/* Timeline colors */
+
+.eou .timeline > :first-child > :nth-child(1) {
+}
+
+.eou .timeline > :first-child > :nth-child(2) {
+}
+
+.eou .timeline > :first-child > :nth-child(3) > span {
+    background-color: rgb(34, 34, 34);
+}
+
+.eou .timeline > :first-child > :nth-child(3) {
+}
+
+/* Active timeline colors */
+
+/* http://www.colourlovers.com/palette/4476342/party_time_! */
+
+.eou .timeline > :first-child > .x:nth-child(1) {
+    background-color: #B52E63;
+}
+
+.eou .timeline > :first-child > .x:nth-child(2) {
+    background-color: #9525C9;
+}
+
+.eou .timeline > :first-child > :nth-child(3) > span.x {
+    background-color: #D0711B;
+}
+
+.eou .timeline > :first-child > .x:nth-child(3) {
+    background-color: #435CD4;
+}
+
+/* Default timeline styles */
+
+.eou .timeline > :first-child > :nth-child(1) {
+    width: 40%;
+}
+
+.eou .timeline > :first-child > :nth-child(2) {
+    width: 20%;
+}
+
+.eou .timeline > :first-child > :nth-child(3) > span {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-block;
+    position: relative;
+    border: 2px solid white;
+    vertical-align: middle;
+    transform: translateX(-1.25rem) translateY(-0.2rem);
+    border-radius: 1.25rem;
+}
+
+.eou .timeline > :first-child > :nth-child(3) {
+    width: 40%;
+}
+
+/* Active timeline styles */
+
+.eou .timeline > :first-child > :nth-child(3) > span.x {
+    width: 10rem;
+    height: 10rem;
+    transform: translateX(-5rem) translateY(-1.1rem);
+    border-radius: 5rem;
+    border: 3px solid white;
+}
+
+.eou .timeline > :first-child > :nth-child(3) > span.x.small {
+    width: 2.5rem;
+    height: 2.5rem;
+    transform: translateX(-1.25rem) translateY(-0.2rem);
+    border-radius: 1.25rem;
+    border: 2px solid white;
+}
