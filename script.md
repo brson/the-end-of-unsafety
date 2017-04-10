@@ -26,10 +26,12 @@ longer sufficient tools for securing it.
 
 ## HAVENS
 
-But the C language, as enduring and successful as it is, will one day
+But the C language, as successful and enduring as it is, will one day
 fall out of use. Make no mistake, it will not be for a great many
-years. But one day even venerable C will depart the shores of the Gray
-Havens, and the age of C will come to and end.
+years. But one day even venerable C will depart the shores of this
+earth, and the age of C will come to and end.
+
+That's where Rust comes in.
 
 ## WHO
 
@@ -76,7 +78,7 @@ behavior.
 
 Rust provides the very best performance without sacrificing safety.
 
-Rust accomplishes this by being designed completely around safe,
+It accomplishes this by being designed completely around safe,
 zero-cost abstractions. The code you write corresponds quite directly
 to the code the machine runs. Accordingly, Rust has no runtime, and -
 crucially - no garbage collector. And this makes Rust extremely
@@ -115,7 +117,7 @@ unsafety.
 
 ## Disclaimers
 
-I quick disclaimer. Rust is a direct competitor to C and C++ in the
+A quick disclaimer. Rust is a direct competitor to C and C++ in the
 marketplace. In the Rust project we take great pride in being civil,
 in not putting down the competition. Still, this talk will say much
 about the weaknesses of C and C++ in comparison to Rust. As former C
@@ -166,13 +168,14 @@ find the Rust model significantly clarifiies their own thinking about
 code, but it does take investment on the programmers part, and an
 openness to new ideas.
 
-It's also possible that plain competition could win over Rust. In
-much the same way C, the "worse is better" solution, dominated the
-market for decades by working in all the right places, some other
-language may do Rust better than Rust. And even with Rust's technical
-strengths, it may not succeed if it doesn't catch on fast. If we go
-another five years without a killer app written in Rust taking off in
-a major way, that could be very bad Rust's prospects.
+It's also possible that plain competition could win over Rust. In much
+the same way C, the "worse is better" solution, dominated the market
+for decades by working in all the right places, some other language
+may do what Rust does good enough. Or a new language might do Rust
+better than Rust. And even with Rust's technical strengths, it may not
+succeed if it doesn't catch on fast. If we go another five years
+without a killer app written in Rust taking off in a major way, that
+could be very bad Rust's prospects.
 
 ## CHCPP
 
@@ -181,15 +184,16 @@ have similar costs and performance, but Rust has the advantage of
 memory safety and a clean slate.
 
 The biggest challenge to Rust's adoption in the systems space is
-simply the vast amounts of C++ code running the world today. Note that
-I say "C++" and not "C and C++". Interop with C is quite simple and
-Rust can masquerade as C all day. Interop with C++ on the other hand
-is very, very hard, and few languages do it successfully.
+interoperating with the vast amounts of C++ code running the world
+today. Note that I say "C++" and not "C and C++". Interop with C is
+quite simple and Rust can masquerade as C all day. Interop with C++ on
+the other hand is very, very hard, and few languages do it
+successfully.
 
 Along those same lines, we've already encountered a number of
 challenges integrating Rust into existing build systems. Rust has it's
 own opinionated package manager called Cargo, and while it works very
-well, teaching it to integrate with the all the various build systems
+well, teaching it to integrate with all the various build systems
 used for C and C++ is an ongoing process. This is something we're
 hearing a lot from users right now, and working to address.
 
@@ -197,9 +201,8 @@ hearing a lot from users right now, and working to address.
 
 Rust replacing C is in some ways a simpler story than replacing C++,
 and some ways more complex. C is a much easier language to interop
-with than C++, and because of that it tends to be used almost
-exclusively at the lower layers of the stack, in system libraries and
-operating system kernels.
+with than C++, and because of that it tends to be used for the lowest
+layers of the stack, in system libraries and operating system kernels.
 
 The big thing that Rust needs to make inroads at that level is ABI
 stability - that is, the capacity to do seamless upgrades of dynamic
@@ -215,9 +218,8 @@ equivalent performance.
 ## SUCC
 
 So there definitely are some challenges, and it's going to be a long
-road for Rust, but they are surmountable.
-
-But we have a lot of reason to be hopeful.
+road for Rust, but they are surmountable. And we have a lot of reason
+to be hopeful.
 
 Perhaps the greatest reason is that Rust's technical foundations are
 very, very strong. The runtimeless ownership model is a strong base to
@@ -234,7 +236,7 @@ deployment, Rust will see wider and wider use. Our published roadmap
 for 2017 is almost entirely about clearing the way for production
 users.
 
-Another major system advantage we have built into Rust is the design
+Another major systemic advantage we have built into Rust is the design
 of its library ecosystem, and the separation between the language and
 the libraries. Rust is quite modular, with much of its capabilities
 being provided by libraries. For example, Rust knows nothing about
@@ -245,9 +247,9 @@ The standard library itself can be completely replaced, and we expect
 it to, for use cases we haven't thought of yet. As an example, the
 Rust standard library assumes allocations will succeed. This is a
 simplifying assumption that is reasonable for most classes of
-software. But Rust is flexible enough that ambitious developers can
-build their own library stack to accomplish whatever they want,
-and we expect that flexibility to be a major advantage.
+software. But some application domains, particularly in the embedded
+and kernel worlds, want more control over their allocation, and we
+expect to make that possible.
 
 The Rust standard library itself is quite small, providing core data
 structures and operating system abstractions. Everything else is
