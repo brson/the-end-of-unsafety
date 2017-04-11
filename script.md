@@ -134,7 +134,22 @@ we'll discuss some of Rust's own weaknesses, to balance the score.
 
 ## CREAT
 
+So now we get to Rust.
+
+In 2009 Brendan Eiche, the creator of JavaScript, and co-founder of
+Mozilla, was thinking about these problems a lot, and despairing.
+
 ## FX
+
+Firefox, the web browser he had helped turn into a major force on the
+internet, with over 100 million users, was in trouble.
+
+Web browsers are massive pieces of software, exposed directly to
+the internet, and constantly under attack. In the preceding decade
+there had been a competition between browser vendors to provide
+ever-stronger protection against these attacks: things like
+process sandboxing, cross-browser ...
+
 
 ## BLOC
 
