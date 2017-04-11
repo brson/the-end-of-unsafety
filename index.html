@@ -186,16 +186,55 @@
 
         <section>
           <h3>A real-world example</h3>
-          In-depth example (heartbleed)
+          OpenSSL
         </section>
 
         <section>
-          Example 2. less in-depth
+          <img src='images/heartbleed.png'/>
         </section>
 
         <section>
-          why people continue to use C.
-          Make sure to mention curl.
+          <h3>Heartbleed in detail</h3>
+          <ul>
+            <li>Missing bounds check</li>
+            <li>Dormant for <strong>two years</strong></li>
+            <li>Private keys leaked</li>
+          </ul>
+        </section>
+
+        <section>
+          <img src='images/stagefright.png'/>
+        </section>
+
+        <section>
+          <img src='images/conficker.png' style='background:white'/>
+        </section>
+
+        <section>
+          <h3>CVE-2015-7547</h3>
+          <ul>
+            <li>glibc: getaddrinfo stack-based buffer overflow</li>
+            <li>Multiple stack-based buffer overflows</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Why keep using C/C++?</h3>
+
+          <ul>
+            <li>Inertia</li>
+            <li>Costly to rewrite</li>
+            <li>Portability</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Example: curl</h3>
+
+          <ul>
+            <li>Widely used HTTP client</li>
+            <li>Dozens of memory safety CVEs</li>
+          </ul>
         </section>
 
         <!-- The Creation of Rust -->
