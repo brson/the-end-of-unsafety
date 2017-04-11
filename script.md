@@ -138,12 +138,16 @@ we'll discuss some of Rust's weaknesses, to balance the score.
 
 ## FX
 
-## LOC
+## BLOC
 
 This gives you an idea of the size of these code bases. They aren't
 the biggest code bases in the world, but they are big. And this is
 just the parts written in C/C++.
 
+## BCVE
+
+- https://nvd.nist.gov/vuln/search/results?adv_search=true&form_type=advanced&results_type=overview&cpe_vendor=cpe%3a%2f%3amozilla&cpe_product=cpe%3a%2f%3a%3afirefox&pub_date_start_month=0&pub_date_start_year=2016&pub_date_end_month=0&pub_date_end_year=2017
+- https://nvd.nist.gov/vuln/search/results?adv_search=true&form_type=advanced&results_type=overview&cpe_vendor=cpe%3a%2f%3agoogle&cpe_product=cpe%3a%2f%3a%3achrome&pub_date_start_month=0&pub_date_start_year=2016&pub_date_end_month=0&pub_date_end_year=2017
 
 <!-- The Future of Rust -->
 

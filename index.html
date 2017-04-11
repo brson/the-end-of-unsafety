@@ -221,7 +221,7 @@
                style="height: 100%;">
         </section>
 
-        <section id="LOC" style="height: 80%;">
+        <section id="BLOC">
           <div>
             <div>
               <img src="images/firefox.png" style="height: 200px;">
@@ -236,26 +236,43 @@
           </div>
         </section>
 
-        <section>
-          roc quote
+        <section id="BCVE">
+          <div>
+            <div>
+              <img src="images/firefox.png" style="height: 200px;">
+            </div>
+            <div><span>133 CVEs in 2016</span></div>
+          </div>
+          <div>
+            <div>
+              <img src="images/chrome.svg" style="height: 150px;">
+            </div>
+            <div><span>203 CVEs in 2016</span></div>
+          </div>
         </section>
 
         <section>
-          Firefox (logo) CVEs
-          Chrome (logo) CVEs
-        </section>
-
-        <section>
-          Brendan and Graydon headshots
+          <blockquote>
+            All 34 sec-critical bugs filed against Web Audio so far
+            are either buffer overflows or use-after-free.
+          </blockquote>
+          <cite>&mdash; Robert O'Callahan, Mozilla</cite>
         </section>
 
         <section>
           <h3>Rust's original design / requirements</h3>
-          <ul>
-            <li>Memory safety
-            <li>Thread-local, garbage collected heaps
-            <li>Green-threaded concurrency (ala Go)</li>
-          </ul>
+          <div>
+            <ul style="position: absolute; top=0; left=0;">
+              <li>Memory safety</li>
+              <li>Thread-local, garbage-collected heaps</li>
+              <li>Green-threaded concurrency (ala Go)</li>
+            </ul>
+            <ul class="fragment">
+              <li>Memory safety</li>
+              <li><strike>Thread-local, garbage-collected heaps</strike></li>
+              <li><strike>Green-threaded concurrency (ala Go)</strike></li>
+            </ul>
+          </div>
           <!-- not at all like C/C++ - sufficient for a web browser? -->
         </section>
 
