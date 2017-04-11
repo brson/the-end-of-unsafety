@@ -116,6 +116,7 @@ The Past, Present and Future of of the Rust Programming Language.
     - "why is the c programming language still used?"
   - https://arstechnica.com/gadgets/2017/04/samsungs-tizen-is-riddled-with-security-flaws-amateurishly-written/
   - https://en.wikipedia.org/wiki/Memory_safety
+  - https://news.ycombinator.com/item?id=14090478
 
 [This blog post about curl's reason for using C][1] led some
 commenters to go through all the known curl vulnerabilities from the

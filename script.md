@@ -127,6 +127,9 @@ we'll discuss some of Rust's own weaknesses, to balance the score.
 
 
 
+
+
+
 <!-- The Creation of Rust -->
 
 ## CREAT
@@ -141,8 +144,29 @@ just the parts written in C/C++.
 
 ## BCVE
 
-- https://nvd.nist.gov/vuln/search/results?adv_search=true&form_type=advanced&results_type=overview&cpe_vendor=cpe%3a%2f%3amozilla&cpe_product=cpe%3a%2f%3a%3afirefox&pub_date_start_month=0&pub_date_start_year=2016&pub_date_end_month=0&pub_date_end_year=2017
-- https://nvd.nist.gov/vuln/search/results?adv_search=true&form_type=advanced&results_type=overview&cpe_vendor=cpe%3a%2f%3agoogle&cpe_product=cpe%3a%2f%3a%3achrome&pub_date_start_month=0&pub_date_start_year=2016&pub_date_end_month=0&pub_date_end_year=2017
+## DORIG
+
+## DACT
+
+And the reason that both these original assumptions didn't hold
+boils down to performance - for our use cases we can tolerate no
+runtime abstraction costs, and both garbage collection, even if
+it is single-threaded, and green-threading, impose significant
+overhead.
+
+## KEY
+
+But it took us a long time to come to this conclusion, and we only
+came to it indirectly. For a long time we thought these costs would be
+acceptable - it was only after reaching an important insight about the
+design of Rust that we realized not only the importance of zero-cost
+abstractions, but also the attainability of zero-cost abstractions.
+
+And the key question that drove that insight was this:
+
+"How can I maintain memory safety in a concurrent program without a
+global GC?"
+
 
 <!-- The Future of Rust -->
 
