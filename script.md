@@ -132,6 +132,17 @@ we'll discuss some of Rust's weaknesses, to balance the score.
 
 
 
+<!-- The Creation of Rust -->
+
+## CREAT
+
+## FX
+
+## LOC
+
+This gives you an idea of the size of these code bases. They aren't
+the biggest code bases in the world, but they are big. And this is
+just the parts written in C/C++.
 
 
 <!-- The Future of Rust -->
@@ -267,8 +278,8 @@ programmers. With Rust, systems programming is easy and accessible.
 This is one of the biggest revelations we've had in Rust's development
 - that there are vast audiences that want to write low level code but
 don't want to write C and C++. We see a lot of young programmers with
-backgrounds in Ruby and JavaScript getting into Rust, and creating the
-high-performance systems software.
+backgrounds in Ruby and JavaScript getting into Rust, and creating
+their own high-performance systems software for the first time.
 
 And this points to Rust's greatest strength - it's culture and
 community. In Rust we are building a new systems programming culture,

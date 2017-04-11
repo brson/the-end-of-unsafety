@@ -56,6 +56,25 @@
     color: orange;
 }
 
+.eou #LOC > div {
+    padding-left: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.eou #LOC > div > div:nth-child(1) {
+    flex-basis: 30%;
+}
+
+.eou #LOC > div > div:nth-child(2) {
+    flex-basis: 70%;
+}
+
+.eou #LOC > div > div:nth-child(2) {
+    text-align: left;
+}
+
 
 
 /* Timeline stuff */
