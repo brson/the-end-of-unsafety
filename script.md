@@ -124,10 +124,31 @@ we'll discuss some of Rust's own weaknesses, to balance the score.
 
 <!-- The Age of Unsafety -->
 
+## MEMERR
+
+I want to take us back 
+
+while functional, they all had a fatal flaw.
+
+What do i mean by unsafe?
+
+This is kind of the technical definition of unsafe: software bugs,
+memory safety.
+
+These classes of bugs you'll find in C and C++ programs, buffer
+overflows, use after frees. Bad bugs. They can all lead to security
+vulnerabilities. Viruses and malware, this is how they take over
+your computer.
+
+These languages are incredibly powerful, but they don't give you 
 
 
+## OSSL
 
+<missed>
 
+I'm sure we've all heard of the heartbleed vulnerability. It ended
+up 
 
 
 <!-- The Creation of Rust -->
