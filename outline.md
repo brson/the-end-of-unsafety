@@ -136,3 +136,11 @@ Need alternate barrowing demo.
 
 - gray havens http://intergalacticrobot.blogspot.com/2013_10_01_archive.html
 - barbarians http://www.barnesandnoble.com/blog/sci-fi-fantasy/throwback-thursday-robert-e-howards-conan-the-barbarian-is-whats-best-in-life/
+
+# section timings
+
+- intro - 5 minutes
+- age of unsafety - 10 minutes?
+- creation of rust - 10 minutes?
+- rust today - 10 minutes?
+- rust future - 15 minutes

@@ -15,23 +15,18 @@ This is The End of Unsafety.
 
 ## BARB
 
-It's a story about how the world changes and how our software changes
-with it.
+We live in an Age of Unsafety.
 
-We live today in an Age of Unsafety.
+This age began in 1972, with the C language, and with Unix, and today
+it encompasses all we see. Unsafety is the foundation of the computing
+world.
 
-Because C is beset on all sides. The barbarians are
-at the gate. The internet is no longer safe, and C and C++ are no
-longer sufficient tools for securing it.
+And now we are beset on all sides. The barbarians are at the gate.
 
-## HAVENS
+The internet is no longer safe, and the tools of the past are no
+longer up to the task of securing it.
 
-But the C language, as successful and enduring as it is, will one day
-fall out of use. Make no mistake, it will not be for a great many
-years. But one day even venerable C will depart the shores of this
-earth, and the age of C will come to and end.
-
-That's where Rust comes in.
+That is why Rust exists.
 
 ## WHO
 
@@ -124,7 +119,7 @@ about the weaknesses of C and C++ in comparison to Rust. As former C
 and C++ programmers ourselves we have the greatest respect for their
 users and creators. We'll try to stick to objective facts, and we beg
 your forgiveness if we misspeak. Toward the end of this talk
-we'll discuss some of Rust's weaknesses, to balance the score.
+we'll discuss some of Rust's own weaknesses, to balance the score.
 
 
 <!-- The Age of Unsafety -->
@@ -186,11 +181,11 @@ openness to new ideas.
 It's also possible that plain competition could win over Rust. In much
 the same way C, the "worse is better" solution, dominated the market
 for decades by working in all the right places, some other language
-may do what Rust does good enough. Or a new language might do Rust
-better than Rust. And even with Rust's technical strengths, it may not
-succeed if it doesn't catch on fast. If we go another five years
-without a killer app written in Rust taking off in a major way, that
-could be very bad Rust's prospects.
+may do what Rust does just good enough. Or a new language might do
+Rust better than Rust. And even with Rust's technical strengths, it
+may not succeed if it doesn't catch on fast. If we go another five
+years without a killer app written in Rust taking off in a major way,
+that could be very bad Rust's prospects.
 
 ## CHCPP
 
@@ -219,10 +214,20 @@ and some ways more complex. C is a much easier language to interop
 with than C++, and because of that it tends to be used for the lowest
 layers of the stack, in system libraries and operating system kernels.
 
-The big thing that Rust needs to make inroads at that level is ABI
+The big thing that Rust needs to make inroads at that level is binary
 stability - that is, the capacity to do seamless upgrades of dynamic
 libraries between point releases. Today Rust provides very strong
-_source stability_, but not _ABI stability_.
+_source stability_, but not _binary stability_.
+
+Another significant technical challenge for Rust in comparison to C is
+its approach to generics. Rust uses a technique called
+"monomorphisation", which simply means that each time the Rust
+compiler instantiates a generic function it emits a fresh, optimized,
+copy of the machine code. Generic function calls in Rust are
+dispatched statically. This is the same model as C++, and it produces
+fast code, but it also produces large binaries. In contrast, C code
+tends to rely more heavily on dynamic dispatch for polymorphism, and
+so C programmers are accustomed to smaller binaries.
 
 C also provides some unique features that might not be used often, but
 occasionally are used to achieve performance, things like
@@ -256,7 +261,7 @@ of its library ecosystem, and the separation between the language and
 the libraries. Rust is quite modular, with much of its capabilities
 being provided by libraries. For example, Rust knows nothing about
 concurrency, but its libraries leverage ownership and borrowing to
-provide very robust concurrency abstractions.
+provide very robust and foolproof concurrency abstractions.
 
 The standard library itself can be completely replaced, and we expect
 it to, for use cases we haven't thought of yet. As an example, the
@@ -268,7 +273,7 @@ expect to make that possible.
 
 The Rust standard library itself is quite small, providing core data
 structures and operating system abstractions. Everything else is
-provided via Cargo and the crate ecosystem. This was a very
+provided via Cargo and the library ecosystem. This was a very
 intentional decision to ensure both a high quality core product, and
 to encourage free experimentation in the Rust community, and it has
 paid off well - we see great libraries coming out of the Rust
