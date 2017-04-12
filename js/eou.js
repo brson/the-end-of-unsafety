@@ -92,6 +92,7 @@ Reveal.addEventListener('fragmentshown', function(event) {
     document.getElementById("pop").className += " visible";
     document.getElementById("balloon-mut").className += " popped";
     document.getElementById("string-mut").className += " popped";
+    document.getElementById("boy-mut").src = "images/stick-boy-down.png";
   }
 
   
@@ -163,6 +164,7 @@ Reveal.addEventListener('fragmenthidden', function(event) {
     removeClass(document.getElementById("pop"), "visible");
     removeClass(document.getElementById("balloon-mut"), "popped");
     removeClass(document.getElementById("string-mut"), "popped");
+    document.getElementById("boy-mut").src = "images/stick-boy-up.png";
   }
 
 });
