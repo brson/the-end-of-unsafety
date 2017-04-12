@@ -26,3 +26,22 @@ Reveal.addEventListener('slidechanged', function(event) {
   slide_name_div.innerHTML = id;
 });
 
+Reveal.addEventListener('fragmentshown', function(event) {
+  let orig = document.getElementById("balloon-orig");
+  orig.style.visibility = "visible";
+
+  console.log(event.fragment.id);
+  if (event.fragment.id == "balloon-transfer") {
+    orig.style.visibility = "hidden";
+  }
+});
+
+Reveal.addEventListener('fragmenthidden', function(event) {
+  let orig = document.getElementById("balloon-orig");
+  orig.style.visibility = "hidden";
+
+  console.log(event.fragment.id);
+  if (event.fragment.id == "balloon-transfer") {
+    orig.style.visibility = "visible";
+  }
+});

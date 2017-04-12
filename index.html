@@ -286,12 +286,16 @@
           </div>
         </section>
 
-        <section>
+        <section id="WEBAUD">
           <blockquote>
             All 34 sec-critical bugs filed against Web Audio so far
             are either buffer overflows or use-after-free.
           </blockquote>
           <cite>&mdash; Robert O'Callahan, Mozilla</cite>
+        </section>
+
+        <section id="RUST" style="height: 80%;">
+              <img src="images/rust-logo-white.svg" style="height: 100%;">
         </section>
 
         <section id="DORIG">
@@ -308,7 +312,6 @@
               <li><strike>Green-threaded concurrency (ala Go)</strike></li>
             </ul>
           </div>
-          <!-- not at all like C/C++ - sufficient for a web browser? -->
         </section>
 
         <section id="DACT">
@@ -317,7 +320,6 @@
             <li>Memory safety</li>
             <li>No GC or runtime at all</li>
             <li>Traditional OS threads and concurrency</li>
-          </ul>
           <!-- todo why? perf -->
         </section>
 
@@ -329,16 +331,75 @@
 
         </section>
 
-        <section>
+        <section id="HEAP">
+          <div class="twoheap">
+
+            <div>
+              <div>Thread A</div>
+              <div class="heap">
+                <span>h<br>e<br>a<br>p</span>
+                <img src="images/balloon-blue.png" class="fragment" id="balloon-orig">
+              </div>
+              <div class="stack">
+                <span>s<br>t<br>a<br>c<br>k</span>
+              </div>
+            </div>
+
+            <div>
+              <div>Thread B</div>
+              <div class="heap">
+                <span>h<br>e<br>a<br>p</span>
+                <img src="images/balloon-blue.png" class="fragment" id="balloon-transfer">
+              </div>
+              <div class="stack">
+                <span>s<br>t<br>a<br>c<br>k</span>
+              </div>
+            </div>
+
+          </div>
         </section>
 
-        <section>
-          Ownership
+        <section id="TANGLE">
+          <div class="twoheap">
+
+            <div>
+              <div>Thread A</div>
+              <div class="heap">
+                <span>h<br>e<br>a<br>p</span>
+              </div>
+              <div class="stack">
+                <span>s<br>t<br>a<br>c<br>k</span>
+              </div>
+            </div>
+
+            <div>
+              <div>Thread B</div>
+              <div class="heap">
+                <span>h<br>e<br>a<br>p</span>
+              </div>
+              <div class="stack">
+                <span>s<br>t<br>a<br>c<br>k</span>
+              </div>
+            </div>
+
+          </div>
+          <img src="images/balloon-tangled.png">
         </section>
 
-        <section>
-          Explanation of ownership
+        <section id="INS">
+          The Rust insight
+          <p class="fragment">Rust is Cyclone + Singularity</p>
         </section>
+
+        <section id="OWN">
+          Ownership and borrowing
+          <p>In Rust, every value has a single, statically-known,
+            owning path in the code, at any time.</p>
+          <p>Pointers to values have limited duration, known as a
+            "lifetime", that is also statically tracked.</p>
+          <p>All pointers to all values are known statically.</p>
+        </section>
+
 
         <section>
           Baloon demo

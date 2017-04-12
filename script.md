@@ -97,7 +97,7 @@ it.
 ## OV2
 
 Then we're going to visit Rust's history, why Mozilla
-needed it, and how Rust evolved to provide solutions for
+created it, and how Rust evolved to provide solutions for
 the use cases commonly reserved for C and C++ alone.
 
 ## OV3
@@ -112,14 +112,14 @@ unsafety.
 
 ## Disclaimers
 
-A quick disclaimer. Rust is a direct competitor to C and C++ in the
-marketplace. In the Rust project we take great pride in being civil,
-in not putting down the competition. Still, this talk will say much
-about the weaknesses of C and C++ in comparison to Rust. As former C
-and C++ programmers ourselves we have the greatest respect for their
-users and creators. We'll try to stick to objective facts, and we beg
-your forgiveness if we misspeak. Toward the end of this talk
-we'll discuss some of Rust's own weaknesses, to balance the score.
+A quick disclaimer. In the Rust project we take great pride in being
+civil, in not putting down the competition. But Rust is a direct
+competitor to C and C++ in the marketplace, and this talk will say
+much about the weaknesses of C and C++ in comparison to Rust. As
+former C and C++ programmers ourselves we have the greatest respect
+for their users and creators. We'll try to stick to the facts,
+and we beg your forgiveness if we misspeak. Toward the end of this
+talk we'll discuss some of Rust's own weaknesses.
 
 
 <!-- The Age of Unsafety -->
@@ -157,7 +157,7 @@ up
 
 So now we get to Rust.
 
-In 2009 Brendan Eiche, the creator of JavaScript, and co-founder of
+In 2009 Brendan Eich, the creator of JavaScript, and co-founder of
 Mozilla, was thinking about these problems a lot, and despairing.
 
 ## FX
@@ -165,22 +165,67 @@ Mozilla, was thinking about these problems a lot, and despairing.
 Firefox, the web browser he had helped turn into a major force on the
 internet, with over 100 million users, was in trouble.
 
-Web browsers are massive pieces of software, exposed directly to
-the internet, and constantly under attack. In the preceding decade
-there had been a competition between browser vendors to provide
-ever-stronger protection against these attacks: things like
-process sandboxing, cross-browser ...
+Web browsers are massive pieces of software, exposed directly to the
+internet, and constantly under attack. In the preceding decade there
+had been a competition between browser vendors to provide
+ever-stronger protection against these attacks: things like process
+sandboxing, layout frame poisoning, font and shader sanitizers, and
+even migrating code from C++ to JavaScript to avoid the memory
+unsafety.
 
 
 ## BLOC
 
-This gives you an idea of the size of these code bases. They aren't
-the biggest code bases in the world, but they are big. And this is
-just the parts written in C/C++.
+This gives you an idea of the size of the Firefox codebase: 10 million
+lines. And Chrome is even bigger. They aren't the biggest code bases
+in the world, but they are big. And this is just the parts written in
+C/C++. Every one of these lines of code could be hiding a bug that
+leads to an exploit.
 
 ## BCVE
 
+And they do. All the time. Firefox had more than 130 CVEs in 2016.
+Not all of these were due to memory unsafety, but a lot were. We find
+that when we do that analysis that anywhere from 20%, to 50% or more
+of CVEs for any particular product are due to memory unsafety.
+
+## WEBAUD
+
+This is a quote from Robert O'Callahan, a distinguished Mozilla
+engineer, from 2013 about the Web Audio stack. The Web Audio stack is
+a large C++ codebase and when it was introduced to Firefox, it brought
+along with it 34 critical security bugs, 100% of which were due to
+memory unsafety.
+
+## RUST
+
+So Brendan was worried about this in 2009, and started talking
+with his peers about finding solutions. And it just so happened
+that Graydon Hoare had a pet project that was intented to solve
+some of these problems. Graydon had previously been involved
+in the doomed ECMAScript 4 effort, and before that had created
+the Monotone version conttrol system. And he was working on
+a programming language called "Rust".
+
 ## DORIG
+
+Now, the Rust of 2009 was much different from the Rust of today.
+Even then, the primary objective was to solve the memory safety
+problem, but the assumptions were different.
+
+Back then, even the Rust team thought the only viable way to solve the
+memory safety problem was through a garbage collector, so Rust's heaps
+were garbage collected, but that garbage collection was thread-local.
+That way garbage collection in one thread would not interfere with
+progress in other threads. This was in important early constraint,
+and it influenced our ultimate solution.
+
+Rust was, at the time, a green-threaded programming language in the
+style of Go, with ML influences.
+
+(next fragment)
+
+But these assumptions did not hold.
 
 ## DACT
 
@@ -202,6 +247,56 @@ And the key question that drove that insight was this:
 
 "How can I maintain memory safety in a concurrent program without a
 global GC?"
+
+## HEAP
+
+Let me illustrate the problem. Here we have two isolated threads, each
+with its own heap (on top), and stack (on bottom).
+
+Now, imagine I create an object in thread A's heap.
+
+(next fragment)
+
+Here represented by a blue balloon.
+
+Now, imagine that thread B wants that balloon, so I send it from
+thread A to thread B.
+
+(next fragment)
+
+So far so good. But how should the language actually implement that?
+Well, since we have isolated heaps, perhaps we make a deep copy of the
+balloon, copying the balloon over to the other heap.
+
+But what if the balloon itself contains pointers to other ballons?
+How do you deal with those?
+
+These are hard problems to solve, and it's easy to end up back in a
+situation like this...
+
+## TANGLE
+
+With pointers from multiple threads pointing into the same objects.
+
+And then we need a global GC again.
+
+## INS
+
+For months we batted around this problem of sending objects between
+threads without invalidating pointers, and without a garbage collector.
+
+Around this time Niko Matsakis joined the team. Niko was an actual
+trained type theorist, and he brought some good ideas.
+
+Niko was looking at a research project called Cyclone and wondering
+if we could learn from it. Cyclone was a safe dialect of C
+that used static analysis to track the validity of pointers.
+
+Cyclone's system was somewhat limited and did not directly solve
+our multithreading problem.
+
+
+
 
 
 <!-- The Future of Rust -->
@@ -335,8 +430,8 @@ The Rust standard library itself is quite small, providing core data
 structures and operating system abstractions. Everything else is
 provided via Cargo and the library ecosystem. This was a very
 intentional decision to ensure both a high quality core product, and
-to encourage free experimentation in the Rust community, and it has
-paid off well - we see great libraries coming out of the Rust
+to encourage free and rapid experimentation in the Rust community, and
+it has paid off well - we see great libraries coming out of the Rust
 community, and as they mature they will be adopted into the Rust
 cannon.
 
