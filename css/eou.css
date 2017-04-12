@@ -133,6 +133,77 @@
     transform: translate(-50%, -50%);
 }
 
+/* Stick figure balloon illustrations */
+
+.eou .stickarea {
+    width: 800px;
+    height: 500px;
+}
+
+.eou .stickarea .b,
+.eou .stickarea .g {
+    width: 200px;
+    height: 200px;
+}
+
+.eou .stickarea .b {
+    position: absolute;
+    top: 300px;
+    left: 100px;
+}
+
+.eou .stickarea .g {
+    position: absolute;
+    top: 300px;
+    left: 500px;
+}
+
+.eou .stickarea .o {
+    width: 300px;
+}
+
+.eou .dialog {
+    font-size: 20px;
+    position: absolute;
+    top: 200px;
+    left: 130px;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.eou #balloon-owned {
+    position: absolute;
+    top: 80px;
+    left: 130px;
+    visibility: hidden;
+}
+
+.eou #balloon-owned.visible {
+    visibility: visible;
+}
+
+.eou #balloon-owned.moved {
+    position: absolute;
+    top: 80px;
+    left: 380px;
+    transition-duration: 1s;
+}
+
+.eou #balloon-owned-di {
+    visibility: hidden;
+}
+
+.eou #balloon-owned-di.visible {
+    visibility: visible;
+}
+
+.eou #balloon-owned.floated {
+    top: -500px;
+    transition-duration: 3s;
+}
+
+
 /* Timeline stuff */
 
 .eou .timeline > div:first-child {

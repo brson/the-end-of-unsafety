@@ -27,22 +27,74 @@ Reveal.addEventListener('slidechanged', function(event) {
 });
 
 Reveal.addEventListener('fragmentshown', function(event) {
+  console.log("shown " + event.fragment.id);
   let orig = document.getElementById("balloon-orig");
   orig.style.visibility = "visible";
 
-  console.log(event.fragment.id);
   if (event.fragment.id == "balloon-transfer") {
     orig.style.visibility = "hidden";
   }
+
+  if (event.fragment.id == "balloon-owned-trigger1") {
+    document.getElementById("stick-title-owned").style.visibility = "hidden";
+    document.getElementById("balloon-owned").className += " visible";
+    document.getElementById("boy-owned").src = "images/stick-boy-up.png";
+  }
+  
+  if (event.fragment.id == "balloon-owned-trigger2") {
+    document.getElementById("balloon-owned").className +=" moved";
+    document.getElementById("boy-owned").src = "images/stick-boy-down.png";
+    document.getElementById("girl-owned").src = "images/stick-girl-up.png";
+  }
+
+  if (event.fragment.id == "balloon-owned-trigger3") {
+    document.getElementById("balloon-owned-di").className += " visible";
+  }
+
+  if (event.fragment.id == "balloon-owned-trigger4") {
+    removeClass(document.getElementById("balloon-owned-di"), "visible");
+    document.getElementById("balloon-owned").className += " floated";
+    document.getElementById("girl-owned").src = "images/stick-girl-down.png";
+    document.getElementById("boy-owned").src = "images/stick-boy-shocked.png";
+  }
+
+  
 });
 
 Reveal.addEventListener('fragmenthidden', function(event) {
+  console.log("hidden " + event.fragment.id);
   let orig = document.getElementById("balloon-orig");
   orig.style.visibility = "hidden";
 
-  console.log(event.fragment.id);
   if (event.fragment.id == "balloon-transfer") {
     orig.style.visibility = "visible";
   }
+
+  if (event.fragment.id == "balloon-owned-trigger1") {
+    document.getElementById("stick-title-owned").style.visibility = "visible";
+    removeClass(document.getElementById("balloon-owned"), "visible");
+    document.getElementById("boy-owned").src = "images/stick-boy-down.png";
+  }
+
+  if (event.fragment.id == "balloon-owned-trigger2") {
+    removeClass(document.getElementById("balloon-owned"), "moved");
+    document.getElementById("boy-owned").src = "images/stick-boy-up.png";
+    document.getElementById("girl-owned").src = "images/stick-girl-down.png";
+  }
+
+  if (event.fragment.id == "balloon-owned-trigger3") {
+    removeClass(document.getElementById("balloon-owned-di"), "visible");
+  }
+
+  if (event.fragment.id == "balloon-owned-trigger4") {
+    document.getElementById("balloon-owned-di").className += " visible";
+    removeClass(document.getElementById("balloon-owned"), "floated");
+    document.getElementById("girl-owned").src = "images/stick-girl-up.png";
+    document.getElementById("boy-owned").src = "images/stick-boy-down.png";
+  }
+
 });
 
+function removeClass(e, c) {
+  e.className = e.className.replace(" " + c, "");
+}

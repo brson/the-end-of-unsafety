@@ -133,10 +133,13 @@ unsafety according to this tally.
 
 Need alternate barrowing demo.
 
-## credits
+## image credits
 
 - gray havens http://intergalacticrobot.blogspot.com/2013_10_01_archive.html
 - barbarians http://www.barnesandnoble.com/blog/sci-fi-fantasy/throwback-thursday-robert-e-howards-conan-the-barbarian-is-whats-best-in-life/
+- http://www.balloondealer.com/app/black-latex-balloon-u-183.html
+- http://www.clipartpanda.com/categories/red-balloon-clipart
+- http://www.clipartkid.com/boy-stick-figure-cliparts/
 
 # section timings
 
