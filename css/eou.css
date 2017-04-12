@@ -203,6 +203,97 @@
     transition-duration: 3s;
 }
 
+.eou #balloon-sh {
+    width: 130px;
+    position: absolute;
+    top: 80px;
+    left: 215px;
+    transition-duration: 2s;
+}
+
+.eou #string-sh {
+    width: 50px;
+    height: 160px;
+    position: absolute;
+    top: 214px;
+    left: 256px;
+    transition-duration: 2s;
+}
+
+.eou #balloon-sh.moved {
+    width: 130px;
+    position: absolute;
+    top: 250px;
+    left: 455px;
+    transition-duration: 2s;
+}
+
+.eou #string-sh.moved {
+    width: 50px;
+    height: 260px;
+    position: absolute;
+    top: 240px;
+    left: 370px;
+    transform: rotateZ(95deg);
+    transition-duration: 2s;
+}
+
+.eou #balloon-mut {
+    width: 130px;
+    position: absolute;
+    top: 80px;
+    left: 215px;
+    transition-duration: 2s;
+}
+
+.eou #string-mut {
+    width: 50px;
+    height: 160px;
+    position: absolute;
+    top: 214px;
+    left: 256px;
+    transition-duration: 2s;
+}
+
+.eou #balloon-mut.moved {
+    width: 130px;
+    position: absolute;
+    top: 250px;
+    left: 455px;
+    transition-duration: 2s;
+}
+
+.eou #string-mut.moved {
+    width: 50px;
+    height: 260px;
+    position: absolute;
+    top: 240px;
+    left: 370px;
+    transform: rotateZ(95deg);
+    transition-duration: 2s;
+}
+
+.eou #pop {
+    visibility: hidden;
+    width: 200px;
+    position: absolute;
+    top: 60px;
+    left: 180px;
+}
+
+.eou #pop.visible {
+    visibility: visible;
+}
+
+.eou #balloon-mut.popped {
+    visibility: hidden;
+    transition-duration: 0s;
+}
+
+.eou #string-mut.popped {
+    visibility: hidden;
+    transition-duration: 0s;
+}
 
 /* Timeline stuff */
 

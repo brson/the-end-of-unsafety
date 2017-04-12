@@ -58,6 +58,38 @@ Reveal.addEventListener('fragmentshown', function(event) {
     document.getElementById("boy-owned").src = "images/stick-boy-shocked.png";
   }
 
+  if (event.fragment.id == "balloon-sh-trigger1") {
+    document.getElementById("stick-title-sh").style.visibility = "hidden";
+    document.getElementById("balloon-sh").className += " moved";
+    document.getElementById("string-sh").className += " moved";
+    document.getElementById("girl-sh").src = "images/stick-girl-up.png";
+  }
+
+  if (event.fragment.id == "balloon-sh-trigger2") {
+    removeClass(document.getElementById("balloon-sh"), "moved");
+    removeClass(document.getElementById("string-sh"), "moved");
+    document.getElementById("girl-sh").src = "images/stick-girl-down.png";
+  }
+
+  if (event.fragment.id == "balloon-mut-trigger1") {
+    document.getElementById("stick-title-mut").style.visibility = "hidden";
+    document.getElementById("balloon-mut").className += " moved";
+    document.getElementById("string-mut").className += " moved";
+    document.getElementById("girl-mut").src = "images/stick-girl-up.png";
+  }
+
+  if (event.fragment.id == "balloon-mut-trigger2") {
+    removeClass(document.getElementById("balloon-mut"), "moved");
+    removeClass(document.getElementById("string-mut"), "moved");
+    document.getElementById("girl-mut").src = "images/stick-girl-down.png";
+  }
+
+  if (event.fragment.id == "balloon-mut-trigger3") {
+    document.getElementById("pop").className += " visible";
+    document.getElementById("balloon-mut").className += " popped";
+    document.getElementById("string-mut").className += " popped";
+  }
+
   
 });
 
@@ -91,6 +123,38 @@ Reveal.addEventListener('fragmenthidden', function(event) {
     removeClass(document.getElementById("balloon-owned"), "floated");
     document.getElementById("girl-owned").src = "images/stick-girl-up.png";
     document.getElementById("boy-owned").src = "images/stick-boy-down.png";
+  }
+
+  if (event.fragment.id == "balloon-sh-trigger1") {
+    document.getElementById("stick-title-sh").style.visibility = "visible";
+    removeClass(document.getElementById("balloon-sh"), "moved");
+    removeClass(document.getElementById("string-sh"), "moved");
+    document.getElementById("girl-sh").src = "images/stick-girl-down.png";
+  }
+
+  if (event.fragment.id == "balloon-sh-trigger2") {
+    document.getElementById("balloon-sh").className += " moved";
+    document.getElementById("string-sh").className += " moved";
+    document.getElementById("girl-sh").src = "images/stick-girl-up.png";
+  }
+
+  if (event.fragment.id == "balloon-mut-trigger1") {
+    document.getElementById("stick-title-mut").style.visibility = "visible";
+    removeClass(document.getElementById("balloon-mut"), "moved");
+    removeClass(document.getElementById("string-mut"), "moved");
+    document.getElementById("girl-mut").src = "images/stick-girl-down.png";
+  }
+
+  if (event.fragment.id == "balloon-mut-trigger2") {
+    document.getElementById("balloon-mut").className += " moved";
+    document.getElementById("string-mut").className += " moved";
+    document.getElementById("girl-mut").src = "images/stick-girl-up.png";
+  }
+  
+  if (event.fragment.id == "balloon-mut-trigger3") {
+    removeClass(document.getElementById("pop"), "visible");
+    removeClass(document.getElementById("balloon-mut"), "popped");
+    removeClass(document.getElementById("string-mut"), "popped");
   }
 
 });
