@@ -295,8 +295,21 @@ that used static analysis to track the validity of pointers.
 Cyclone's system was somewhat limited and did not directly solve
 our multithreading problem.
 
+But also at the same time we became aware of another research project
+at Microsoft called Singularity. It was an attempt to reimagine the
+operating system in .NET. There wasn't a lot of information coming
+out of Microsoft
 
+(next fragment)
 
+In a real sense Rust is Cyclone plus Singularity.
+
+And the result in Rust is what we call "ownership and borrowing".
+
+## OWN
+
+This is kind of the key takeaway. Ownership and borrowing is what
+makes Rust, Rust.
 
 
 <!-- The Future of Rust -->
