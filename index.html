@@ -412,10 +412,10 @@
             <img src="images/balloon-blue.png" class="o" id="balloon-owned">
             <div class="dialog" id="balloon-owned-di">OK, give my<br>balloon back</div>
           </div>
-          <div class="fragment" style="display: none" id="balloon-owned-trigger1">
-          <div class="fragment" style="display: none" id="balloon-owned-trigger2">
-          <div class="fragment" style="display: none" id="balloon-owned-trigger3">
-          <div class="fragment" style="display: none" id="balloon-owned-trigger4">
+          <div class="fragment" style="display: none" id="balloon-owned-trigger1"/>
+          <div class="fragment" style="display: none" id="balloon-owned-trigger2"/>
+          <div class="fragment" style="display: none" id="balloon-owned-trigger3"/>
+          <div class="fragment" style="display: none" id="balloon-owned-trigger4"/>
         </section>
 
         <section id="BSH" data-transition="none">
@@ -426,8 +426,8 @@
             <img src="images/balloon-green-nostring.png" id="balloon-sh">
             <img src="images/balloon-string.png" id="string-sh">
           </div>
-          <div class="fragment" style="display: none" id="balloon-sh-trigger1">
-          <div class="fragment" style="display: none" id="balloon-sh-trigger2">
+          <div class="fragment" style="display: none" id="balloon-sh-trigger1"/>
+          <div class="fragment" style="display: none" id="balloon-sh-trigger2"/>
         </section>
 
         <section id="BMUT" data-transition="none">
@@ -439,14 +439,44 @@
             <img src="images/balloon-string.png" id="string-mut">
             <img src="images/pop.png" id="pop">
           </div>
-          <div class="fragment" style="display: none" id="balloon-mut-trigger1">
-          <div class="fragment" style="display: none" id="balloon-mut-trigger2">
-          <div class="fragment" style="display: none" id="balloon-mut-trigger3">
-          <div class="fragment" style="display: none" id="balloon-mut-trigger4">
+          <div class="fragment" style="display: none" id="balloon-mut-trigger1"/>
+          <div class="fragment" style="display: none" id="balloon-mut-trigger2"/>
+          <div class="fragment" style="display: none" id="balloon-mut-trigger3"/>
+          <div class="fragment" style="display: none" id="balloon-mut-trigger4"/>
         </section>
 
-        <section>
-          <!-- We're not going into tech details - check -->
+        <section id="ROWN">
+          <div>Ownership transfer<br>(move / by-value)</div>
+          <pre><code data-trim data-noescape>
+fn main() {
+    let b = Balloon::new();
+    examine_balloon(b);
+    <span class="fragment">// accessing b here is a compilation error
+    <span class="bluh">println!("still have a balloon? {}", b);</span></span>
+}
+
+fn examine_balloon(b: Balloon) {
+    println!("this balloon looks like {}", b);
+    // b is destroyed when the function exits
+}
+          </code></pre>
+        </section>
+
+        <section id="RSH">
+          <div>Pass by shared reference (&)</div>
+          <pre><code data-trim data-noescape>
+fn main() {
+    let b = Balloon::new();
+    examine_balloon(<span class="rsh-em">&</span>b);
+    println!("still have my balloon! {}", b);
+    // b is destroyed when the function exits
+}
+
+fn examine_balloon(b: <span class="rsh-em">&</span>Balloon) {
+    println!("this balloon looks like {}", b);
+}
+          </code></pre>
+          <div class="fragment" style="display: none" id="rown-trigger"/>
         </section>
 
         <section>

@@ -95,6 +95,12 @@ Reveal.addEventListener('fragmentshown', function(event) {
     document.getElementById("boy-mut").src = "images/stick-boy-down.png";
   }
 
+  if (event.fragment.id == "rsh-trigger") {
+    for (e in document.getElementsByTag("rown-em")) {
+      alert(e);
+    }
+  }
+
   
 });
 
