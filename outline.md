@@ -141,6 +141,8 @@ Need alternate barrowing demo.
 - http://www.clipartpanda.com/categories/red-balloon-clipart
 - http://www.clipartkid.com/boy-stick-figure-cliparts/
 - https://www.pinterest.com/monsieurpop/pop/
+- http://www.freepik.com/free-icon/winking-emoticon-with-tongue-out-of-mouth-and-square-face-shape_726172.htm
+- http://www.freepik.com/free-icon/emoticon-square-smiling-face-with-closed-eyes_726265.htm
 
 # section timings
 

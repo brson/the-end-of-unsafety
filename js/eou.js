@@ -79,12 +79,16 @@ Reveal.addEventListener('fragmentshown', function(event) {
   }
 
   if (event.fragment.id == "balloon-mut-trigger2") {
+    document.getElementById("balloon-mut").src = "images/balloon-red-nostring-mutated.png";
+  }
+
+  if (event.fragment.id == "balloon-mut-trigger3") {
     removeClass(document.getElementById("balloon-mut"), "moved");
     removeClass(document.getElementById("string-mut"), "moved");
     document.getElementById("girl-mut").src = "images/stick-girl-down.png";
   }
 
-  if (event.fragment.id == "balloon-mut-trigger3") {
+  if (event.fragment.id == "balloon-mut-trigger4") {
     document.getElementById("pop").className += " visible";
     document.getElementById("balloon-mut").className += " popped";
     document.getElementById("string-mut").className += " popped";
@@ -146,12 +150,16 @@ Reveal.addEventListener('fragmenthidden', function(event) {
   }
 
   if (event.fragment.id == "balloon-mut-trigger2") {
+    document.getElementById("balloon-mut").src = "images/balloon-red-nostring.png";
+  }
+
+  if (event.fragment.id == "balloon-mut-trigger3") {
     document.getElementById("balloon-mut").className += " moved";
     document.getElementById("string-mut").className += " moved";
     document.getElementById("girl-mut").src = "images/stick-girl-up.png";
   }
   
-  if (event.fragment.id == "balloon-mut-trigger3") {
+  if (event.fragment.id == "balloon-mut-trigger4") {
     removeClass(document.getElementById("pop"), "visible");
     removeClass(document.getElementById("balloon-mut"), "popped");
     removeClass(document.getElementById("string-mut"), "popped");
