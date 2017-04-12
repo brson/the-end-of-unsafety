@@ -97,7 +97,7 @@
 }
 
 .eou div.twoheap > div {
-    width: 16rem;
+    width: 250px;
 }
 
 .eou div.twoheap > div > div:first-child {
@@ -106,13 +106,13 @@
 }
 
 .eou div.twoheap .heap {
-    height: 18rem;
+    height: 300px;
     background-color: #333;
     border: 1px solid white;
 }
 
 .eou div.twoheap .stack {
-    height: 8rem;
+    height: 150px;
     background-color: #444;
     border: 1px solid white;
     border-top: 0;
@@ -120,7 +120,7 @@
 
 .eou div.twoheap .heap > span,
 .eou div.twoheap .stack > span {
-    font-size: 1rem;
+    font-size: 14px;
     padding: 4px;
     float: left;
 }

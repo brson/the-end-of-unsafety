@@ -45,3 +45,4 @@ Reveal.addEventListener('fragmenthidden', function(event) {
     orig.style.visibility = "visible";
   }
 });
+

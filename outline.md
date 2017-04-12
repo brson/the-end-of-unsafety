@@ -145,3 +145,13 @@ Need alternate barrowing demo.
 - creation of rust - 10 minutes?
 - rust today - 10 minutes?
 - rust future - 15 minutes
+
+- intro - 5.30
+- creation - 8
+- future - 13
+
+## todo
+
+- fix scaling of balloon illustrations
+- split future success slides
+- get sticky notes

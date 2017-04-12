@@ -177,10 +177,10 @@ unsafety.
 ## BLOC
 
 This gives you an idea of the size of the Firefox codebase: 10 million
-lines. And Chrome is even bigger. They aren't the biggest code bases
-in the world, but they are big. And this is just the parts written in
-C/C++. Every one of these lines of code could be hiding a bug that
-leads to an exploit.
+lines. And Chrome is even bigger at 12 millions lines. They aren't the
+biggest code bases in the world, but they are big. And this is just
+the parts written in C and C++. Any one of these lines of code could
+be hiding a bug that leads to an exploit.
 
 ## BCVE
 
@@ -199,13 +199,13 @@ memory unsafety.
 
 ## RUST
 
-So Brendan was worried about this in 2009, and started talking
-with his peers about finding solutions. And it just so happened
-that Graydon Hoare had a pet project that was intented to solve
-some of these problems. Graydon had previously been involved
-in the doomed ECMAScript 4 effort, and before that had created
-the Monotone version conttrol system. And he was working on
-a programming language called "Rust".
+So Brendan was worried about this in 2009, and started talking with
+his peers about finding solutions. And it just so happened that
+Graydon Hoare had a pet project that was intented to solve these
+problems. Graydon had previously been involved in the doomed
+ECMAScript 4 effort, and before that had created the Monotone version
+control system. And he was working on a programming language called
+"Rust".
 
 ## DORIG
 
@@ -235,13 +235,13 @@ runtime abstraction costs, and both garbage collection, even if
 it is single-threaded, and green-threading, impose significant
 overhead.
 
-## KEY
-
 But it took us a long time to come to this conclusion, and we only
 came to it indirectly. For a long time we thought these costs would be
 acceptable - it was only after reaching an important insight about the
 design of Rust that we realized not only the importance of zero-cost
 abstractions, but also the attainability of zero-cost abstractions.
+
+## KEY
 
 And the key question that drove that insight was this:
 
@@ -265,10 +265,11 @@ thread A to thread B.
 (next fragment)
 
 So far so good. But how should the language actually implement that?
-Well, since we have isolated heaps, perhaps we make a deep copy of the
-balloon, copying the balloon over to the other heap.
+Well, since the Rust of 2009 isolated heaps, perhaps we make a deep
+copy of the balloon, copying the balloon over to the other heap.
 
 But what if the balloon itself contains pointers to other ballons?
+And what if one of those contains a pointer back into the stack?
 How do you deal with those?
 
 These are hard problems to solve, and it's easy to end up back in a
@@ -297,8 +298,11 @@ our multithreading problem.
 
 But also at the same time we became aware of another research project
 at Microsoft called Singularity. It was an attempt to reimagine the
-operating system in .NET. There wasn't a lot of information coming
-out of Microsoft
+operating system in .NET. There wasn't a lot of information coming out
+of Microsoft but what caught our eye was their approach to
+concurrency. In Singularity they employed a novel technique to
+transfer ownership of - and sole access to - entire regions of memory
+between threads, by only copying a pointer.
 
 (next fragment)
 
@@ -308,15 +312,28 @@ And the result in Rust is what we call "ownership and borrowing".
 
 ## OWN
 
-This is kind of the key takeaway. Ownership and borrowing is what
-makes Rust, Rust.
+This is kind of the key takeaway of this whole presentation. Ownership
+and borrowing is what makes Rust, Rust.
+
+In Rust, every value has a single, statically-known, owning path in the code,
+at any time.
+
+Points to values have limited duration, known as a "lifetime", that
+is also statically tracked.
+
+All pointers to all values are known statically.
+
+Now there are actually are caveats and exceptions, but if you
+understand this, you understand how Rust approaches the memory safety
+problem.
+
 
 
 <!-- The Future of Rust -->
 
 ## SFUT
 
-So hopefully by now we've painted a fairly glowing picturer of Rust.
+So hopefully by now we've painted a fairly glowing picture of Rust.
 But that's not to say that Rust is perfect. We've got a long way
 to go yet.
 
@@ -400,8 +417,7 @@ so C programmers are accustomed to smaller binaries.
 C also provides some unique features that might not be used often, but
 occasionally are used to achieve performance, things like
 setjmp/longjmp, and computed goto. It's not clear whether Rust would
-adopt such features to gain parity, or would pursue alternatives with
-equivalent performance.
+adopt such features to gain parity.
 
 ## SUCC
 
