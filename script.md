@@ -454,7 +454,7 @@ derived from ML and Haskell. We believe Rust's semantics are quite
 attractive for systems programmers, but convincing happy C++
 developers of this isn't simple.
 
-But worse than that, Rust's fundamental model - ownership and
+But more than that, Rust's fundamental model - ownership and
 borrowing - is effectively a new programming paradigm - it requires
 users to adapt to a new way of thinking about how they manage the
 resources in their code. Programmers who make that connection tend to
@@ -463,13 +463,10 @@ code, but it does take investment on the programmers part, and an
 openness to new ideas.
 
 It's also possible that plain competition could win over Rust. In much
-the same way C, the "worse is better" solution, dominated the market
-for decades by working in all the right places, some other language
-may do what Rust does just good enough. Or a new language might do
-Rust better than Rust. And even with Rust's technical strengths, it
-may not succeed if it doesn't catch on fast. If we go another five
-years without a killer app written in Rust taking off in a major way,
-that could be very bad Rust's prospects.
+the same way C, a "worse is better" solution, dominated the market for
+decades by working in all the right places, some other language may do
+what Rust does just good enough. Or a new language might do Rust
+better than Rust.
 
 ## CHCPP
 
@@ -507,11 +504,8 @@ Another significant technical challenge for Rust in comparison to C is
 its approach to generics. Rust uses a technique called
 "monomorphisation", which simply means that each time the Rust
 compiler instantiates a generic function it emits a fresh, optimized,
-copy of the machine code. Generic function calls in Rust are
-dispatched statically. This is the same model as C++, and it produces
-fast code, but it also produces large binaries. In contrast, C code
-tends to rely more heavily on dynamic dispatch for polymorphism, and
-so C programmers are accustomed to smaller binaries.
+copy of the machine code. This results in large binary sizes that
+C programmers are unaccustomed to.
 
 C also provides some unique features that might not be used often, but
 occasionally are used to achieve performance, things like
