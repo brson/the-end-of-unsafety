@@ -158,6 +158,7 @@ Need alternate barrowing demo.
 
 ## todo
 
-- fix scaling of balloon illustrations
 - split future success slides
 - get sticky notes
+- less monomorphization
+- write outro

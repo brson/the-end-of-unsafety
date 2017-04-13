@@ -18,8 +18,8 @@ This is The End of Unsafety.
 We live in an Age of Unsafety.
 
 This age began in 1972, with the C language, and with Unix, and today
-it encompasses all we see. Unsafety is the foundation of the computing
-world.
+it encompasses all that we see. Unsafety is at the foundation of the
+computing world.
 
 And now we are beset on all sides. The barbarians are at the gate.
 
@@ -483,11 +483,20 @@ is going to change the nature of systems programming for the better.
 
 TODO
 
-## PRED
+## FUT
 
-TODO
+But that's just what _we're_ doing to enable Rust developers. What's
+really going to happen over the next few years is that a lot of
+world-class software is going to be written in Rust. And that software
+is going to be reliable, reusable, and maintainable in ways that
+software written in memory-unsafe languages is not. These programs are
+going to enjoy significant advantages over their competition, and it
+will become increasingly difficult to choose C and C++ over Rust.
 
-## OUTRO
+The legacy of C and C++ will continue for many decades, but the
+future is in safety. And the future is in Rust.
+
+## FIN
 
 Once again my name is Brian Anderson, and this is my friend Alex
 Crichton, and this is The End of Unsafety.

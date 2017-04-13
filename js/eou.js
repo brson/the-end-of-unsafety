@@ -1,5 +1,6 @@
 Reveal.initialize({
   history: true,
+  controls: false,
 
   keyboard: {
     65: function() {
