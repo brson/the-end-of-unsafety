@@ -492,7 +492,7 @@ occasionally are used to achieve performance, things like
 setjmp/longjmp, and computed goto. It's not clear whether Rust would
 adopt such features to gain parity.
 
-## SUCC
+## SUC1
 
 So there definitely are some challenges, and it's going to be a long
 road for Rust, but they are surmountable. And we have a lot of reason
@@ -513,20 +513,14 @@ deployment, Rust will see wider and wider use. Our published roadmap
 for 2017 is almost entirely about clearing the way for production
 users.
 
+## SUC2
+
 Another major systemic advantage we have built into Rust is the design
 of its library ecosystem, and the separation between the language and
 the libraries. Rust is quite modular, with much of its capabilities
 being provided by libraries. For example, Rust knows nothing about
 concurrency, but its libraries leverage ownership and borrowing to
 provide very robust and foolproof concurrency abstractions.
-
-The standard library itself can be completely replaced, and we expect
-it to, for use cases we haven't thought of yet. As an example, the
-Rust standard library assumes allocations will succeed. This is a
-simplifying assumption that is reasonable for most classes of
-software. But some application domains, particularly in the embedded
-and kernel worlds, want more control over their allocation, and we
-expect to make that possible.
 
 The Rust standard library itself is quite small, providing core data
 structures and operating system abstractions. Everything else is
