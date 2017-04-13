@@ -113,7 +113,7 @@ really exciting right now.
 Then we'll speculate about the coming years for Rust, and the end of
 unsafety.
 
-## Disclaimers
+## D
 
 A quick disclaimer. In the Rust project we take great pride in being
 civil, in not putting down the competition. But Rust is a direct
@@ -126,33 +126,6 @@ talk we'll discuss some of Rust's own weaknesses.
 
 
 <!-- The Age of Unsafety -->
-
-## MEMERR
-
-I want to take us back 
-
-while functional, they all had a fatal flaw.
-
-What do i mean by unsafe?
-
-This is kind of the technical definition of unsafe: software bugs,
-memory safety.
-
-These classes of bugs you'll find in C and C++ programs, buffer
-overflows, use after frees. Bad bugs. They can all lead to security
-vulnerabilities. Viruses and malware, this is how they take over
-your computer.
-
-These languages are incredibly powerful, but they don't give you 
-
-
-## OSSL
-
-<missed>
-
-I'm sure we've all heard of the heartbleed vulnerability. It ended
-up 
-
 
 <!-- The Creation of Rust -->
 
@@ -567,7 +540,54 @@ is going to change the nature of systems programming for the better.
 
 ## NEXT
 
-TODO
+There's a lot going on in Rust, but let's talk about a few of the big
+things.
+
+(next)
+
+The most important thing we are doing right now is improving Rust's
+erogomics. Rust is a very powerful system, but it has some rough
+edges, and those especially impact new users. There are a number of
+changes coming up that will make Rust even more fun to use than it is
+today.
+
+(next)
+
+The next big thing is asynchronous I/O, via a project called "tokio".
+Async I/O is how you do fast I/O in the modern world. If you are
+familiar with node.js with it's callbacks, that's async I/O. We are
+hopeful that tokio is going to become the fastest and most robust
+async I/O stack there is. This is going to be a big enabler for Rust
+developers, and we expect to see some impressive software built on it.
+Alex is giving a talk on this tomorrow.
+
+(next)
+
+In Rust we value documentation. Already, we hear a lot of praise for
+the quality of our docs, but we're not going to let up. In the next
+year we'll be publishing a completed language reference, thoroughly
+documenting all the most important Rust libraries, and proving
+guidance on designing APIs the Rust way.
+
+(next)
+
+A programming language is not competitive today unless it has strong
+tooling. Developers have high expectations. We're creating a new
+program called the Rust Language Server, an IDE-agnostic server that
+provides the metadata and analysis required to fulfill the typical
+functionality of an IDE. And we're integrating that with Visual
+Studio Code.
+
+That's going to be released this summer.
+
+(next)
+
+Finally, I've already spoken about the importance of interop, but it's
+not just with C and C++. Because Rust has no runtime, it's easy to
+embed in any language stack, and we see a lot of demand for that.
+When you have a Rails application that needs to be accelerated, and
+your choices are memory-unsafe C, and Rust, that choice should be
+easy. We think this is a major avenue for Rust adoption.
 
 ## FUT
 
@@ -580,7 +600,7 @@ going to enjoy significant advantages over their competition, and it
 will become increasingly difficult to choose C and C++ over Rust.
 
 The legacy of C and C++ will continue for many decades, but the
-future is in safety. And the future is in Rust.
+future is in safety. And the future is written in Rust.
 
 ## FIN
 
