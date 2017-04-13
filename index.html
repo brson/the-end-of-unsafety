@@ -929,6 +929,30 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
             <li>Incredible tech</li>
             <li>Production focus</li>
           </ul>
+          <aside class="notes">
+            <p>So there definitely are some challenges, and it's going to be a long
+            road for Rust, but they are surmountable. And we have a lot of reason
+            to be hopeful.</p>
+
+            <p>Perhaps the greatest reason is that
+            Rust's <em>technical foundations</em> are very, very
+            strong. The runtimeless ownership model is a powerful base
+            to build the entire computing stack on top of. We are
+            <em>thankful</em> every week that, through some miracle,
+            all the years of design work we did somehow left us in a
+            real <em>sweet spot in the design space</em>.</p>
+
+            <p>And having this strong technical foundation gives us
+            <em>freedom</em> to focus on getting Rust
+            into <em>production</em> in more places. From the very
+            beginning, Rust has been <em>designed for production</em>,
+            to fulfill the needs of Firefox, a product used by 100
+            million people. And now we are in a position where if we
+            just keep knocking down obstacles to production
+            deployment, Rust will see wider and wider use. Our
+            published <em>roadmap for 2017</em> is almost entirely
+            about clearing the way for production users.</p>
+          </aside>
         </section>
 
         <section id="SUC2">
@@ -938,6 +962,50 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
             <li>Expanded systems audience</li>
             <li>Strong culture</li>
           </ul>
+          <aside class="notes">
+            <p>Another major systemic advantage we have built into
+            Rust is the design of its <em>library ecosystem</em>, and the
+            <em>separation between the language and the
+            libraries</em>. Rust is quite modular, with much of its
+            capabilities being provided by libraries. <em>For example,
+            Rust knows nothing about concurrency</em>, but its
+            libraries leverage ownership and borrowing to provide very
+            robust and foolproof concurrency abstractions.</p>
+
+            <p>The Rust <em>standard library itself is quite small</em>,
+            providing core data structures and operating system
+            abstractions. Everything else is provided via Rust's
+            package manager <em>Cargo and the library
+            ecosystem</em>. This was a very intentional decision to
+            ensure both a high quality core product, and to
+            encourage <em>free and rapid experimentation</em> in the
+            Rust community, and it has paid off well - we see great
+            libraries coming out of the Rust community, and as they
+            mature they will be adopted into the Rust cannon.</p>
+
+            <p>The convenience, flexibility, and robustness of the Rust
+            system is additionally going to vastly <em>expand the
+            audience of systems programmers</em>.</p>
+
+            <p><em>With Rust, systems programming is easy and
+            accessible.</em></p>
+
+            <p>This is one of the biggest <em>revelations</em> we've had
+            in Rust's development - that <em>there are vast audiences
+            that want to write low level code but don't want to write
+            C and C++</em>. We see a lot of young programmers with
+            backgrounds in Ruby and JavaScript getting into Rust, and
+            creating their own high-performance systems software for
+            the first time.</p>
+
+            <p>And this points to Rust's greatest strength - it's
+            <em>culture and community</em>.</p>
+
+            <p><em>In Rust we are building a new systems
+            programming culture, and it is going to be expansive and
+            welcoming and accessible, and it is going to change the
+            nature of systems programming for the better.</em></p>
+          </aside>
         </section>
 
         <section id="NEXT">
