@@ -610,7 +610,7 @@
 
         <section id="BOWN">
           <div class="stickarea">
-            <div id="stick-title-owned">Ownership transfer<br>(move / by-value)</div>
+            <div id="stick-title-owned">Move an owned value</div>
             <img src="images/stick-boy-down.png" class="b" id="boy-owned">
             <img src="images/stick-girl-down.png" class="g" id="girl-owned">
             <img src="images/balloon-blue.png" class="o" id="balloon-owned">
@@ -722,7 +722,7 @@
         </section>
 
         <section id="ROWN">
-          <div>Ownership transfer<br>(move / by-value)</div>
+          <div>Move an owned value</div>
           <pre><code data-trim data-noescape>
 fn main() {
     let b = Balloon::new();
@@ -773,13 +773,29 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
           <div class="fragment" style="display: none" id="rmut-trigger"/>
         </section>
 
-        <section>
+        <section id="SUM">
           <h3>Ownership and borrowing operations</h3>
           <ul>
-            <li>Move an owned value (T)</li>
+            <li>Move an owned value</li>
             <li>Borrow a shared reference (&T)</li>
             <li>Borrow a mutable reference (&mut T)</li>
           </ul>
+          <aside class="notes">
+            <p>Here's a summary of ownership and borrowing.</p>
+
+            <p>This is how Rust thinks about all resources. A
+            convenient way to think of this system is that Rust shared
+            and mutable references provide <em>reader-writer
+            locks</em> over owned values. Rust provides in access
+            control to all memory, and that access control is
+            completely determined statically, with no runtime
+            overhead.</P>
+
+            <p>This system provides fine, deterministic, static, and
+              foolproof control over resources. And this control enables
+              Rust's powerful <em>zero-cost abstractions</em>, and it's
+              <em>incredible performance</em>.</p>
+          </aside>
         </section>
 
         <!-- Rust Today -->
@@ -1048,6 +1064,12 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
             <div>Brian Anderson<br><small>&lt;banderson@mozilla.com&gt;</small></div>
             <div>Alex Crichton<br><small>&lt;acrichton@mozilla.com&gt;</small></div>
           </div>
+          <aside class="notes">
+            <p>Once again my name is Brian Anderson, and this is my friend Alex
+            Crichton, and this is The End of Unsafety.</p>
+
+            <p>Thank you.</p>
+          </aside>
         </section>
 
         <section>

@@ -100,6 +100,9 @@ Then we're going to visit Rust's history, why Mozilla
 created it, and how Rust evolved to provide solutions for
 the use cases commonly reserved for C and C++ alone.
 
+We'll also explain the technique that makes Rust so powerful, called
+"ownership and borrowing".
+
 ## OV3
 
 With that context, then we will try to convince you that Rust is
@@ -401,6 +404,29 @@ Since he still owns the balloon though, he's free to do what
 he wants with it, including destroy it.
 
 (next)
+
+# ROWN
+
+# RSH
+
+# RMUT
+
+# SUM
+
+Here's a summary of ownership and borrowing.
+
+This is how Rust thinks about all resources. A convenient way to think
+of this is that Rust shared and mutable references provide
+reader-writer locks over owned values. Rust has baked in access
+control to all memory, and that access control is completely
+determined statically, with no runtime overhead.
+
+This system provides fine, deterministic, static, and foolproof
+control over resources. And this control enables Rust's powerful
+zero-cost abstractions.
+
+<!-- Rust Today -->
+
 
 <!-- The Future of Rust -->
 
