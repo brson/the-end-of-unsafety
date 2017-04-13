@@ -534,6 +534,41 @@
         <section id="INS">
           The Rust insight
           <p class="fragment">Rust is Cyclone + Singularity</p>
+          <aside class="notes">
+            <p>For months we batted around this <em>problem</em>
+            of <em>sending objects</em> between threads
+            without <em>invalidating pointers</em>, and without a
+            <em>garbage collector</em>.</p>
+
+            <p>Around this time <em>Niko Matsakis</em> joined the
+            team. Niko was an actual trained <em>type theorist</em>,
+            and he brought some good ideas.</p>
+
+            <p>Niko was looking at a research project called <em>Cyclone</em>
+            and wondering if we could learn from it. Cyclone was a
+            safe dialect of C that used <em>static analysis</em> to track the
+            validity of pointers.</p>
+
+            <p>Cyclone's system was somewhat limited and did not directly solve
+            our multithreading problem.</p>
+
+            <p>But also at the same time we became aware of another
+            research project at Microsoft
+            called <em>Singularity</em>. It was an attempt to
+            reimagine the operating system in .NET. There wasn't a lot
+            of information coming out of Microsoft but what caught our
+            eye was their <em>approach to concurrency</em>. In
+            Singularity they employed a novel technique
+            to <em>transfer ownership</em> of - and <em>sole
+            access</em> to - <em>entire regions of memory</em> between threads,
+            by only <em>copying a pointer</em>.</p>
+
+            <p>(next fragment)</p>
+
+            <p>In a real sense Rust is Cyclone plus Singularity.</p>
+
+            <p>And the result in Rust is what we call "<em>ownership and borrowing</em>".</p>
+          </aside>
         </section>
 
         <section id="OWN">
@@ -543,16 +578,39 @@
           <p>Pointers to values have limited duration, known as a
             "lifetime", that is also statically tracked.</p>
           <p>All pointers to all values are known statically.</p>
+          <aside class="notes">
+            <p>This is kind of the key takeaway of this whole presentation. Ownership
+            and borrowing is what makes Rust, Rust.</p>
+
+            <p>(read the slide verbatim)</p>
+
+            <p>Now there are actually are caveats and exceptions, but
+            if you understand this, you understand how Rust approaches
+            the memory safety problem.</p>
+          </aside>
         </section>
 
 
-        <section>
+        <section id="BAL">
           <img src="images/balloons.png" style="height: 500px;">
+          <aside class="notes">
+            <p>One of the neat things about ownership and borrowing as
+            a computational model, is that the <em>concepts are
+            familiar</em> and natural. Ownership and borrowing in Rust
+            is similar to ownership and borrowing of <em>physical
+            objects</em>.</p>
+
+            <p>So this is the portion of the talk where Alex and I
+            usually do a live demonstration of balloon
+            borrowing. Unfortunately, I failed to acquire the
+            necessary helium yesterday, so we're going to demonstrate
+            virtually instead.</p>
+          </aside>
         </section>
 
         <section id="BOWN">
           <div class="stickarea">
-            <div id="stick-title-owned">Ownership Transfer<br>(move / by value)</div>
+            <div id="stick-title-owned">Ownership transfer<br>(move / by-value)</div>
             <img src="images/stick-boy-down.png" class="b" id="boy-owned">
             <img src="images/stick-girl-down.png" class="g" id="girl-owned">
             <img src="images/balloon-blue.png" class="o" id="balloon-owned">
@@ -562,11 +620,36 @@
           <div class="fragment" style="display: none" id="balloon-owned-trigger2"/>
           <div class="fragment" style="display: none" id="balloon-owned-trigger3"/>
           <div class="fragment" style="display: none" id="balloon-owned-trigger4"/>
+          <aside class="notes">
+            <p>First we'll demonstrate <em>transfer of ownership</em>.</p>
+
+            <p>Here I have two figures, stickboy and stickgirl, and
+            they love balloons.</p>
+
+            <p>(next)</p>
+
+            <p>Stickboy has a beautiful blue balloon, and stickgirl
+            wants that balloon. So stickboy is going to hand the
+            balloon to stickgirl.</p>
+
+            <p>(next)</p>
+
+            <p>Oh she's real excited about that balloon, but stickboy
+            is going to want it back.</p>
+
+            <p>(next)</p>
+
+            <p>But stickboy doesn't really have any agency here,
+            because he gave that balloon to stickgirl. And she can do
+            whatever she wants with it.</p>
+
+            <p>(next)</p>
+          </aside>
         </section>
 
         <section id="BSH">
           <div class="stickarea">
-            <div id="stick-title-sh">Pass by shared reference (&)</div>
+            <div id="stick-title-sh">Borrow a shared reference (&)<br></div>
             <img src="images/stick-boy-up.png" class="b" id="boy-sh">
             <img src="images/stick-girl-down.png" class="g" id="girl-sh">
             <img src="images/balloon-green-nostring.png" id="balloon-sh">
@@ -574,11 +657,31 @@
           </div>
           <div class="fragment" style="display: none" id="balloon-sh-trigger1"/>
           <div class="fragment" style="display: none" id="balloon-sh-trigger2"/>
+          <aside class="notes">
+            <p>If stickboy wanted to keep his balloon what he really
+            should have done was have her <em>borrow a reference</em> to
+            it, indicated in Rust by the ampersand.</p>
+
+            <p>So here let's watch stickboy hand his green balloon to
+            stickgirl.</p>
+
+            <p>(next)</p>
+
+            <p>This time, he's handing her the balloon, but holding
+            onto it himself. So when she's done peeking at it stickboy
+            can just pull it right back.</p>
+
+            <p>(next)</p>
+
+            <p>This type of reference is called a "<em>shared reference</em>",
+            and it's immutable, but there's one more type of reference
+            in Rust.</p>
+          </aside>
         </section>
 
         <section id="BMUT">
           <div class="stickarea">
-            <div id="stick-title-mut">Pass by mutable reference (&mut)</div>
+            <div id="stick-title-mut">Borrow a mutable reference (&mut)</div>
             <img src="images/stick-boy-up.png" class="b" id="boy-mut">
             <img src="images/stick-girl-down.png" class="g" id="girl-mut">
             <img src="images/balloon-red-nostring.png" id="balloon-mut">
@@ -589,6 +692,33 @@
           <div class="fragment" style="display: none" id="balloon-mut-trigger2"/>
           <div class="fragment" style="display: none" id="balloon-mut-trigger3"/>
           <div class="fragment" style="display: none" id="balloon-mut-trigger4"/>
+          <aside class="notes">
+            <p>The <em>mutable reference</em>, indicated by ampersand
+            "mute".</p>
+
+            <p>In this example stickboy is going to pass the balloon
+            to stickgirl.</p>
+
+            <p>(next)</p>
+
+            <p>And because it's a mutable reference, she can not only
+            examine it, but can mutate it as well.</p>
+
+            <p>(next)</p>
+
+            <p>So she's going to draw a cheerful face on stickboy's balloon.</p>
+
+            <p>(next)</p>
+
+            <p>And after stickboy yanks it back, while he's still in
+            possession of his treasured red balloon, it's been
+            modified.</p>
+
+            <p>Since he still owns the balloon though, he's free to do
+            what he wants with it, including destroy it.</p>
+
+            <p>(next)</p>
+          </aside>
         </section>
 
         <section id="ROWN">
@@ -598,7 +728,7 @@ fn main() {
     let b = Balloon::new();
     examine_balloon(b);
     <span class="fragment">// accessing b here is a compilation error
-    <span class="bluh">println!("still have a balloon? {}", b);</span></span>
+    <span id="rown-error">println!("still have a balloon? {}", b);</span></span>
 }
 
 fn examine_balloon(b: Balloon) {
@@ -606,10 +736,11 @@ fn examine_balloon(b: Balloon) {
     // b is destroyed when the function exits
 }
           </code></pre>
+          <div class="fragment" id="rown-trigger"/>
         </section>
 
         <section id="RSH">
-          <div>Pass by shared reference (&)</div>
+          <div>Borrow a shared reference (<span class="rsh-em">&</span>)</div>
           <pre><code data-trim data-noescape>
 fn main() {
     let b = Balloon::new();
@@ -622,11 +753,33 @@ fn examine_balloon(b: <span class="rsh-em">&</span>Balloon) {
     println!("this balloon looks like {}", b);
 }
           </code></pre>
-          <div class="fragment" style="display: none" id="rown-trigger"/>
+          <div class="fragment" style="display: none" id="rsh-trigger"/>
+        </section>
+
+        <section id="RMUT">
+          <div>Borrow a mutable reference (<span class="rmut-em">&mut</span>)</div>
+          <pre><code data-trim data-noescape>
+fn main() {
+    let <span class="rmut-em">mut</span> b = Balloon::new();
+    examine_balloon(<span class="rmut-em">&mut</span> b);
+    println!("still have my balloon! {}", b);
+    // b is destroyed when the function exits
+}
+
+fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
+    println!("this balloon looks like {}", b);
+}
+          </code></pre>
+          <div class="fragment" style="display: none" id="rmut-trigger"/>
         </section>
 
         <section>
-          Zero-cost abstractions
+          <h3>Ownership and borrowing operations</h3>
+          <ul>
+            <li>Move an owned value (T)</li>
+            <li>Borrow a shared reference (&T)</li>
+            <li>Borrow a mutable reference (&mut T)</li>
+          </ul>
         </section>
 
         <!-- Rust Today -->

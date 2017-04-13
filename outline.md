@@ -161,4 +161,4 @@ Need alternate barrowing demo.
 - split future success slides
 - get sticky notes
 - less monomorphization
-- write outro
+- fix code sample fragments

@@ -96,9 +96,19 @@ Reveal.addEventListener('fragmentshown', function(event) {
     document.getElementById("boy-mut").src = "images/stick-boy-down.png";
   }
 
+  if (event.fragment.id == "rown-trigger") {
+    document.getElementById("rown-error").className += " strike";
+  }
+
   if (event.fragment.id == "rsh-trigger") {
-    for (e in document.getElementsByTag("rown-em")) {
-      alert(e);
+    for (e of document.querySelectorAll(".rsh-em")) {
+      e.className += " hot";
+    }
+  }
+
+  if (event.fragment.id == "rmut-trigger") {
+    for (e of document.querySelectorAll(".rmut-em")) {
+      e.className += " hot";
     }
   }
 
@@ -172,6 +182,22 @@ Reveal.addEventListener('fragmenthidden', function(event) {
     removeClass(document.getElementById("balloon-mut"), "popped");
     removeClass(document.getElementById("string-mut"), "popped");
     document.getElementById("boy-mut").src = "images/stick-boy-up.png";
+  }
+
+  if (event.fragment.id == "rown-trigger") {
+    removeClass(document.getElementById("rown-error"), "strike");
+  }
+
+  if (event.fragment.id == "rsh-trigger") {
+    for (e of document.querySelectorAll(".rsh-em")) {
+      removeClass(e, "hot");
+    }
+  }
+
+  if (event.fragment.id == "rmut-trigger") {
+    for (e of document.querySelectorAll(".rmut-em")) {
+      removeClass(e, "hot");
+    }
   }
 
 });

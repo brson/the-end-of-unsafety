@@ -199,7 +199,7 @@
 }
 
 .eou #balloon-owned.floated {
-    top: -500px;
+    top: -1000px;
     transition-duration: 3s;
 }
 
@@ -299,10 +299,15 @@
     padding: 2rem;
 }
 
-.eou #ROWN .bluh,
-.eou #ROWN .bluh .hljs-built_in,
-.eou #ROWN .bluh .hljs-string {
+.eou #ROWN .strike {
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+
+.eou .hot,
+.eou .hot .hljs-keyword {
     color: red;
+    text-shadow: red 0 0 10px;
 }
 
 /* Timeline stuff */

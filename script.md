@@ -321,7 +321,86 @@ Now there are actually are caveats and exceptions, but if you
 understand this, you understand how Rust approaches the memory safety
 problem.
 
+## BAL
 
+One of the neat things about ownership and borrowing as a
+computational model, is that the concepts are familiar and
+natural. Ownership and borrowing in Rust is similar to ownership and
+borrowing of physical objects.
+
+So this is the portion of the talk where Alex and I usually do a live
+demonstration of balloon borrowing. Unfortunately, I failed to acquire
+the necessary helium yesterday, so we're going to demonstrate
+virtually instead.
+
+## BOWN
+
+First we'll demonstrate transfer of ownership.
+
+Here I have two figures, stickboy and stickgirl, and they love
+balloons.
+
+(next)
+
+Stickboy has a beautiful blue balloon, and stickgirl wants that
+balloon. So stickboy is going to hand the balloon to stickgirl.
+
+(next)
+
+Oh she's real excited about that balloon, but stickboy is going
+to want it back.
+
+(next)
+
+But stickboy doesn't really have any agency here, because he
+gave that balloon to stickgirl. And she can do whatever she
+wants with it.
+
+(next)
+
+## BSH
+
+If stickboy wanted to keep his balloon what he really should have
+done was have her borrow a reference to it, indicated in Rust
+by the ampersand.
+
+So here let's watch stickboy hand his green balloon to stickgirl.
+
+(next)
+
+This time, he's handing her the balloon, but holding onto it
+himself. So when she's done peeking at it stickboy can just
+pull it right back.
+
+(next)
+
+This type of reference is called a "shared reference", and
+it's immutable, but there's one more type of reference in Rust.
+
+## BMUT
+
+The mutable reference, indicated by ampersand "mute".
+
+In this example stickboy is going to pass the balloon to stickgirl.
+
+(next)
+
+And because it's a mutable reference, she can not only examine it,
+but can mutate it as well.
+
+(next)
+
+So she's going to draw a cheerful face on stickboy's balloon.
+
+(next)
+
+And after stickboy yanks it back, while he's still in possession of
+his treasured red balloon, it's been modified.
+
+Since he still owns the balloon though, he's free to do what
+he wants with it, including destroy it.
+
+(next)
 
 <!-- The Future of Rust -->
 

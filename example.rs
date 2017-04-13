@@ -20,3 +20,13 @@ fn main() {
 fn examine_balloon(b: &Balloon) {
     println!("this balloon looks like {}", b);
 }
+
+fn main() {
+    let mut b = Balloon::new();
+    modify_balloon(&mut b);
+    println!("my balloon is happy! {}", b);
+}
+
+fn modify_balloon(b: &mut Balloon) {
+    b.draw(Drawing::HappyFace);
+}
