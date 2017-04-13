@@ -437,9 +437,8 @@ But that's not to say that Rust is perfect. We've got a long way
 to go yet.
 
 In this portion we'll talk first about some the challenges Rust faces,
-and some if its deficiencies. Then describe some of the near-term
-directions the project is taking, and finally speculate some about the
-more distant future of unsafety.
+and some if its deficiencies. Then we'll say a bit about the future
+direction of Rust, and the future of unsafety.
 
 ## CHAL
 
@@ -504,8 +503,8 @@ Another significant technical challenge for Rust in comparison to C is
 its approach to generics. Rust uses a technique called
 "monomorphisation", which simply means that each time the Rust
 compiler instantiates a generic function it emits a fresh, optimized,
-copy of the machine code. This results in large binary sizes that
-C programmers are unaccustomed to.
+copy of the machine code. This crates fast code, but also results in
+large binary sizes that C programmers are unaccustomed to.
 
 C also provides some unique features that might not be used often, but
 occasionally are used to achieve performance, things like
@@ -572,7 +571,7 @@ TODO
 
 ## FUT
 
-But that's just what _we're_ doing to enable Rust developers. What's
+But that's just what _we're_ doing to enable Rust _developers_. What's
 really going to happen over the next few years is that a lot of
 world-class software is going to be written in Rust. And that software
 is going to be reliable, reusable, and maintainable in ways that
