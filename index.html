@@ -36,6 +36,13 @@
           <h2>The Past, Present and Future</h2>
           <sup>of</sup>
           <h2>The Rust Programming Language</h2>
+
+          <aside class="notes">
+            <p>Hello and thank you for joining us for this talk. We
+            are honored to be here in Beijing for the first time.</p>
+
+            <p>This is The End of Unsafety.</p>
+          </aside>
         </section>
 
         <section id="BARB"
@@ -66,12 +73,49 @@
             <div>Brian Anderson<br><small>&lt;banderson@mozilla.com&gt;</small></div>
             <div>Alex Crichton<br><small>&lt;acrichton@mozilla.com&gt;</small></div>
           </div>
+
+          <aside class="notes">
+            <p>My name is Brian Anderson, and this is my friend Alex
+            Crichton, and we are both members of the Rust programming
+            languages core team, as well as being employed to work on
+            Rust by Mozilla Research.</p>
+
+            <p>Alex will you introduce yourself?</p>
+
+            <p>Alex: I've been working on Rust since 2013, where I
+              have been responsible for large portions of the standard
+              library and the broader library ecosystem. I'm also
+              etc.</p>
+
+            <p>Brian: I've been working on Rust since 2010, involved
+            in every aspect of its development. Much of my work has
+            been in the standard library, tooling, platform support,
+            community building. I have a special passion for software
+            validation and ensuring that Rust is rock solid from
+            release to release.</p>
+          </aside>
         </section>
 
         <section id="LINK">
           <p>https://github.com/brson/the-end-of-unsafety</p>
           <br>
           <p>~&#x2000; slides, notes, links &#x2000;~</p>
+
+          <aside class="notes">
+            <p>Here's the link to the materials for this talk. It
+            includes the slides, speaker notes, and plenty of
+            links.</p>
+
+            <p>I'll give you just a few seconds to make note if you
+            like.</p>
+
+            <p>(take a drink)</p>
+
+            <p>We're going to talk a lot about Rust later, but the
+            first part of this talk is mostly about the motivation for
+            Rust. Before we get into that though, a little bit about
+            what Rust is.</p>
+          </aside>
         </section>
 
         <section id="WHATRUST" data-transition="slide-in fade-out" data-transition-speed="fast">
@@ -85,6 +129,37 @@
           </ul>
           <br><br>
           <p>~&#x2000; www.rust-lang.org &#x2000;~</p>
+
+          <aside class="notes">
+            <p>Rust is first and foremost
+            a <em>high-performance</em>, <em>memory safe</em>, systems
+            programming language. And when I say "high-performance", I
+            don't just mean it's fast, I mean it's competitive with
+            the very fastest programming languages. <em>Think C, C++,
+            and Fortran</em>.</p>
+
+            <p>And when I say "memory safe" I mean that Rust software
+            does not crash, at least not in the way that languages
+            like C and C++ do, where a crash can lead to
+            unpredictable, and - most importantly - exploitable
+            behavior.</p>
+
+            <p><em>Rust provides the very best performance without
+            sacrificing safety</em>.</p>
+
+            <p>It accomplishes this by being designed completely
+            around safe, <em>zero-cost abstractions</em>. The code you
+            write corresponds quite directly to the code the machine
+            runs. Accordingly, Rust has <em>no runtime</em>, and -
+            crucially - <em>no garbage collector</em>. And this makes
+            Rust extremely <em>portable</em> - Rust will run on just
+            about anything with a CPU, everything from
+            <em>microcontrollers</em> to <em>supercomputers</em>.</p>
+
+            <p>Rust is a thriving, collaboratively developed <em>open
+            source</em> project sponsored by <em>Mozilla</em>, the
+            makers of <em>Firefox</em>, who employ Alex and myself.</p>
+          </aside>
         </section>
 
 	<section id="OV" data-transition="none">
@@ -97,6 +172,10 @@
             </div>
             <p>&nbsp;</p>
           </div>
+
+          <aside class="notes">
+            <p>Here's an overview of what this talk is about.</p>
+          </aside>
         </section>
 
 	<section id="OV1" data-transition="none">
@@ -108,6 +187,12 @@
               <span><span></span></span>
             </div>
             <p>1972 &nbsp; → &nbsp; whenever</p>
+          </div>
+
+          <div>
+            <p>First we're going to visit The Age of Unsafety, in
+            which C was conceived, and the entire computing world we
+            know was built on top of it.</p>
           </div>
         </section>
 
@@ -121,6 +206,15 @@
             </div>
             <p>2009 &nbsp; → &nbsp; present</p>
           </div>
+
+          <aside class="notes">
+            <p>Then we're going to visit Rust's history, why Mozilla
+            created it, and how Rust evolved to provide solutions for
+            the use cases commonly reserved for C and C++ alone.</p>
+
+            <p>We'll also explain the technique that makes Rust so
+            powerful, called "ownership and borrowing".</p>
+          </aside>
         </section>
 
 	<section id="OV3" data-transition="none">
@@ -133,6 +227,11 @@
             </div>
             <p>right now!</p>
           </div>
+
+          <aside class="notes">
+            <p>With that context, then we will try to convince you
+            that Rust is really exciting right now.</p>
+          </aside>
         </section>
 
 	<section id="OV4" data-transition="none">
@@ -145,10 +244,30 @@
             </div>
             <p>present &nbsp; → &nbsp; the glorious future</p>
           </div>
+
+          <aside class="notes">
+            <p>Then we'll speculate about the coming years for Rust,
+            and the end of unsafety.</p>
+          </aside>
         </section>
 
         <section>
           Disclaimers
+
+          <aside class="notes">
+            A quick disclaimer. In the Rust project we take
+            great <em>pride</em> in being
+            <em>civil</em>, in not putting down the competition. But
+            Rust is a <em>direct competitor</em> to C and C++ in the
+            marketplace, and this talk will say much about the
+            <em>weaknesses of C and C++</em> in comparison to Rust. As
+            former C and C++ programmers ourselves we have the
+            greatest <em>respect</em> for their users and
+            creators. We'll try to stick to the <em>facts</em>, and we
+            beg your forgiveness if we misspeak. Toward the end of
+            this talk we'll discuss some of <em>Rust's own
+            weaknesses</em>.
+          </aside>
         </section>
 
         <!-- The Age of Unsafety -->
