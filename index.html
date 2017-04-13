@@ -40,6 +40,7 @@
 
         <section id="BARB"
                  data-background-image="images/barbarians.jpg">
+
           <aside class="notes">
             <p>We live in an Age of Unsafety.</p>
 
@@ -264,6 +265,7 @@
             </div>
             <p>2009 &nbsp; → &nbsp; present</p>
           </div>
+
           <aside class="notes">
             <p>So now we're going to get to Rust.</p>
 
@@ -276,6 +278,7 @@
         <section id="FX" style="width: 80%; height: 80%;">
           <img src="images/firefox.png"
                style="height: 100%;">
+
           <aside class="notes">
             <em>Firefox</em>, the web browser he had helped create,
             with <em>over 100 million users</em>, was in trouble.
@@ -299,6 +302,7 @@
             </div>
             <div><span>12,000,000 LOC</span></div>
           </div>
+
           <aside class="notes">
             This gives you an idea of the <em>size of the Firefox
             codebase</em>: 10 million lines. And Chrome is even bigger
@@ -323,6 +327,7 @@
             </div>
             <div><span>203 CVEs in 2016</span></div>
           </div>
+
           <aside class="notes">
             And they do. All the time. Firefox had more than 130 CVEs
             in 2016.  Not all of these were due to memory unsafety,
@@ -338,6 +343,7 @@
             are either buffer overflows or use-after-free.
           </blockquote>
           <cite>&mdash; Robert O'Callahan, Mozilla</cite>
+
           <aside class="notes">
             This is a <em>quote from Robert O'Callahan</em>, a
             <em>distinguished Mozilla engineer</em>, from 2013, about
@@ -350,6 +356,7 @@
 
         <section id="RUST" style="height: 80%;">
           <img src="images/rust-logo-white.svg" style="height: 100%;">
+
           <aside class="notes">
             So Brendan was worried about this in 2009, and started talking with
             his peers about finding solutions. And it just so happened that
@@ -377,6 +384,7 @@
               <li><strike>Green-threaded concurrency (ala Go)</strike></li>
             </ul>
           </div>
+
           <aside class="notes">
             <p>Now, the Rust of 2009 was much different from the Rust
             of today. But even then, the <em>primary objective was to
@@ -410,6 +418,7 @@
             <li>No GC or runtime at all</li>
             <li>Traditional OS threads and concurrency</li>
           </ul>
+
           <aside class="notes">
             <p>And the reason that both these original assumptions
             didn't hold boils down to <em>performance</em> - for our
@@ -434,6 +443,7 @@
 
           <p>How can I maintain memory safety in a concurrent program
              without a global GC?</p>
+
           <aside class="notes">
             <p>And the key question that drove that insight was this:</p>
 
@@ -468,6 +478,7 @@
             </div>
 
           </div>
+
           <aside class="notes">
             <p>Let me illustrate the problem. Here we have <em>two
             isolated threads</em>, each with its own <em>heap</em> (on top),
@@ -524,6 +535,7 @@
 
           </div>
           <img src="images/balloon-tangled.png">
+
           <aside class="notes">
             <p>With pointers from multiple threads pointing into the same objects.</p>
 
@@ -534,6 +546,7 @@
         <section id="INS">
           The Rust insight
           <p class="fragment">Rust is Cyclone + Singularity</p>
+
           <aside class="notes">
             <p>For months we batted around this <em>problem</em>
             of <em>sending objects</em> between threads
@@ -578,6 +591,7 @@
           <p>Pointers to values have limited duration, known as a
             "lifetime", that is also statically tracked.</p>
           <p>All pointers to all values are known statically.</p>
+
           <aside class="notes">
             <p>This is kind of the key takeaway of this whole presentation. Ownership
             and borrowing is what makes Rust, Rust.</p>
@@ -593,6 +607,7 @@
 
         <section id="BAL">
           <img src="images/balloons.png" style="height: 500px;">
+
           <aside class="notes">
             <p>One of the neat things about ownership and borrowing as
             a computational model, is that the <em>concepts are
@@ -620,6 +635,7 @@
           <div class="fragment" style="display: none" id="balloon-owned-trigger2"/>
           <div class="fragment" style="display: none" id="balloon-owned-trigger3"/>
           <div class="fragment" style="display: none" id="balloon-owned-trigger4"/>
+
           <aside class="notes">
             <p>First we'll demonstrate <em>transfer of ownership</em>.</p>
 
@@ -657,6 +673,7 @@
           </div>
           <div class="fragment" style="display: none" id="balloon-sh-trigger1"/>
           <div class="fragment" style="display: none" id="balloon-sh-trigger2"/>
+
           <aside class="notes">
             <p>If stickboy wanted to keep his balloon what he really
             should have done was have her <em>borrow a reference</em> to
@@ -692,6 +709,7 @@
           <div class="fragment" style="display: none" id="balloon-mut-trigger2"/>
           <div class="fragment" style="display: none" id="balloon-mut-trigger3"/>
           <div class="fragment" style="display: none" id="balloon-mut-trigger4"/>
+
           <aside class="notes">
             <p>The <em>mutable reference</em>, indicated by ampersand
             "mute".</p>
@@ -780,6 +798,7 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
             <li>Borrow a shared reference (&T)</li>
             <li>Borrow a mutable reference (&mut T)</li>
           </ul>
+
           <aside class="notes">
             <p>Here's a summary of ownership and borrowing.</p>
 
@@ -945,6 +964,7 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
             <li>Incredible tech</li>
             <li>Production focus</li>
           </ul>
+
           <aside class="notes">
             <p>So there definitely are some challenges, and it's going to be a long
             road for Rust, but they are surmountable. And we have a lot of reason
@@ -978,6 +998,7 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
             <li>Expanded systems audience</li>
             <li>Strong culture</li>
           </ul>
+
           <aside class="notes">
             <p>Another major systemic advantage we have built into
             Rust is the design of its <em>library ecosystem</em>, and the
@@ -1036,6 +1057,7 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
         </section>
 
         <section id="FUT">
+
           <aside class="notes">
             <p>
             But that's just what <em>we're</em> doing to enable Rust
@@ -1064,6 +1086,7 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
             <div>Brian Anderson<br><small>&lt;banderson@mozilla.com&gt;</small></div>
             <div>Alex Crichton<br><small>&lt;acrichton@mozilla.com&gt;</small></div>
           </div>
+
           <aside class="notes">
             <p>Once again my name is Brian Anderson, and this is my friend Alex
             Crichton, and this is The End of Unsafety.</p>
