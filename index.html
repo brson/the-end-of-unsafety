@@ -264,11 +264,26 @@
             </div>
             <p>2009 &nbsp; → &nbsp; present</p>
           </div>
+          <aside class="notes">
+            <p>So now we're going to get to Rust.</p>
+
+            <p>In <em>2009 Brendan Eich</em>, the <em>creator of
+            JavaScript</em>, and <em>co-founder of Mozilla</em>, was
+            thinking about these problems a lot, and <em>despairing</em>.</p>
+          </aside>
         </section>
 
         <section id="FX" style="width: 80%; height: 80%;">
           <img src="images/firefox.png"
                style="height: 100%;">
+          <aside class="notes">
+            <em>Firefox</em>, the web browser he had helped create,
+            with <em>over 100 million users</em>, was in trouble.
+
+            <em>Web browsers are massive pieces of software</em>,
+            exposed directly to the internet, and <em>constantly under
+            attack</em>.
+          </aside>
         </section>
 
         <section id="BLOC">
@@ -284,6 +299,15 @@
             </div>
             <div><span>12,000,000 LOC</span></div>
           </div>
+          <aside class="notes">
+            This gives you an idea of the <em>size of the Firefox
+            codebase</em>: 10 million lines. And Chrome is even bigger
+            at 12 millions lines. They <em>aren't the biggest code
+            bases in the world</em>, but they are big. And this is
+            <em>just the parts written in C and C++</em>. Any one of
+            these lines of <em>code could be hiding a bug that leads
+            to an exploit</em>.
+          </aside>
         </section>
 
         <section id="BCVE">
@@ -299,6 +323,13 @@
             </div>
             <div><span>203 CVEs in 2016</span></div>
           </div>
+          <aside class="notes">
+            And they do. All the time. Firefox had more than 130 CVEs
+            in 2016.  Not all of these were due to memory unsafety,
+            but a lot were. We find that when we do that analysis
+            that <em>anywhere from 20%, to 50% or more</em> of CVEs
+            for any particular product are due to memory unsafety.
+          </aside>
         </section>
 
         <section id="WEBAUD">
@@ -307,10 +338,29 @@
             are either buffer overflows or use-after-free.
           </blockquote>
           <cite>&mdash; Robert O'Callahan, Mozilla</cite>
+          <aside class="notes">
+            This is a <em>quote from Robert O'Callahan</em>, a
+            <em>distinguished Mozilla engineer</em>, from 2013, about
+            the Web Audio stack. The Web Audio stack is a large C++
+            codebase and when it was introduced to Firefox, it brought
+            along with it 34 critical security bugs, <em>100% of
+            which</em> were due to memory unsafety.
+          </aside>
         </section>
 
         <section id="RUST" style="height: 80%;">
-              <img src="images/rust-logo-white.svg" style="height: 100%;">
+          <img src="images/rust-logo-white.svg" style="height: 100%;">
+          <aside class="notes">
+            So Brendan was worried about this in 2009, and started talking with
+            his peers about finding solutions. And it just so happened that
+            <em>Graydon Hoare</em> had a <em>pet project</em> that was
+            <em>intented to solve</em> these problems. Graydon had
+            previously been involved in the doomed <em>ECMAScript
+            4</em> effort, and before that had created
+            the <em>Monotone version control system</em>. And now he
+            was <em>working on a programming language called
+            "Rust"</em>.
+          </aside>
         </section>
 
         <section id="DORIG">
@@ -327,6 +377,30 @@
               <li><strike>Green-threaded concurrency (ala Go)</strike></li>
             </ul>
           </div>
+          <aside class="notes">
+            <p>Now, the Rust of 2009 was much different from the Rust
+            of today. But even then, the <em>primary objective was to
+            solve the memory safety problem</em>, but the assumptions were
+            different.</p>
+
+            <p>Back then, even the Rust team thought the <em>only
+            viable way to solve the memory safety problem was through
+            a garbage collector</em>, so Rust's heaps were garbage
+            collected, but that garbage collection
+            was <em>thread-local</em>.  That way garbage collection in
+            one thread would not <em>interfere with progress</em> in
+            other threads. This was in <em>important early
+            constraint</em>, and it influenced our ultimate
+            solution.</p>
+
+            <p>Rust was, at the time, a <em>green-threaded</em>
+            programming language in the style of Go, with ML
+            influences.</p>
+
+            <p>(next fragment)</p>
+
+            <p>But these assumptions did not hold.</p>
+          </aside>
         </section>
 
         <section id="DACT">
@@ -335,7 +409,24 @@
             <li>Memory safety</li>
             <li>No GC or runtime at all</li>
             <li>Traditional OS threads and concurrency</li>
-          <!-- todo why? perf -->
+          </ul>
+          <aside class="notes">
+            <p>And the reason that both these original assumptions
+            didn't hold boils down to <em>performance</em> - for our
+            use cases we can <em>tolerate no runtime abstraction
+            costs</em>, and both garbage collection, even if it is
+            single-threaded, and green-threading, impose significant
+            overhead.</p>
+
+            <p>But it took us a <em>long time</em> to come to
+            this <em>conclusion</em>, and we only came to it
+            <em>indirectly</em>. For a long time we thought these
+            costs would be acceptable - it was only after reaching an
+            important <em>insight</em> about the design of Rust that
+            we realized not only the <em>importance</em>
+            of <em>zero-cost abstractions</em>, but also
+            the <em>attainability</em> of zero-cost abstractions.</p>
+          </aside>
         </section>
 
         <section id="KEY">
@@ -343,7 +434,12 @@
 
           <p>How can I maintain memory safety in a concurrent program
              without a global GC?</p>
+          <aside class="notes">
+            <p>And the key question that drove that insight was this:</p>
 
+            <p>"How can I maintain memory safety in a concurrent
+              program without a global GC?"</p>
+          </aside>
         </section>
 
         <section id="HEAP">
@@ -372,6 +468,35 @@
             </div>
 
           </div>
+          <aside class="notes">
+            <p>Let me illustrate the problem. Here we have <em>two
+            isolated threads</em>, each with its own <em>heap</em> (on top),
+            and <em>stack</em> (on bottom).</p>
+
+            <p>Now, imagine I create an object in thread A's heap.</p>
+
+            <p>(next fragment)</p>
+
+            <p>Here represented by a blue balloon.</p>
+
+            <p>Now, imagine that thread B wants that balloon, so I
+            send it from thread A to thread B.</p>
+
+            <p>(next fragment)</p>
+
+            <p>So far so good. But how should the language actually
+            implement that? Well, since the Rust of 2009 had isolated
+            heaps, perhaps we make a <em>deep copy</em> of the
+            balloon, copying the balloon over to the other heap.</p>
+
+            But what if the balloon itself contains <em>pointers to
+            other ballons</em>? And what if one of those contains a
+            <em>pointer back into the stack</em>? How do you deal with
+            those?
+
+            <p>These are hard problems to solve, and it's easy to end up back in a
+            situation like this...</p>
+          </aside>
         </section>
 
         <section id="TANGLE">
@@ -399,6 +524,11 @@
 
           </div>
           <img src="images/balloon-tangled.png">
+          <aside class="notes">
+            <p>With pointers from multiple threads pointing into the same objects.</p>
+
+            <p>And then we need a global GC again.</p>
+          </aside>
         </section>
 
         <section id="INS">

@@ -155,7 +155,7 @@ up
 
 ## CREAT
 
-So now we get to Rust.
+So now we're going to get to Rust.
 
 In 2009 Brendan Eich, the creator of JavaScript, and co-founder of
 Mozilla, was thinking about these problems a lot, and despairing.
@@ -166,13 +166,7 @@ Firefox, the web browser he had helped turn into a major force on the
 internet, with over 100 million users, was in trouble.
 
 Web browsers are massive pieces of software, exposed directly to the
-internet, and constantly under attack. In the preceding decade there
-had been a competition between browser vendors to provide
-ever-stronger protection against these attacks: things like process
-sandboxing, layout frame poisoning, font and shader sanitizers, and
-even migrating code from C++ to JavaScript to avoid the memory
-unsafety.
-
+internet, and constantly under attack.
 
 ## BLOC
 
@@ -204,8 +198,8 @@ his peers about finding solutions. And it just so happened that
 Graydon Hoare had a pet project that was intented to solve these
 problems. Graydon had previously been involved in the doomed
 ECMAScript 4 effort, and before that had created the Monotone version
-control system. And he was working on a programming language called
-"Rust".
+control system. And now he was working on a programming language
+called "Rust".
 
 ## DORIG
 
@@ -265,8 +259,8 @@ thread A to thread B.
 (next fragment)
 
 So far so good. But how should the language actually implement that?
-Well, since the Rust of 2009 isolated heaps, perhaps we make a deep
-copy of the balloon, copying the balloon over to the other heap.
+Well, since the Rust of 2009 had isolated heaps, perhaps we make a
+deep copy of the balloon, copying the balloon over to the other heap.
 
 But what if the balloon itself contains pointers to other ballons?
 And what if one of those contains a pointer back into the stack?
