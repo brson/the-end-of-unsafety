@@ -388,15 +388,15 @@ he wants with it, including destroy it.
 
 Here's a summary of ownership and borrowing.
 
-This is how Rust thinks about all resources. A convenient way to think
-of this is that Rust shared and mutable references provide
-reader-writer locks over owned values. Rust has baked in access
-control to all memory, and that access control is completely
-determined statically, with no runtime overhead.
+This is how Rust sees everything. A convenient way to think of this is
+that Rust shared and mutable references provide reader-writer locks
+over owned values. Rust has built-in access control to all memory, and
+it is completely determined statically, with no runtime overhead.
 
-This system provides fine, deterministic, static, and foolproof
-control over resources. And this control enables Rust's powerful
-zero-cost abstractions.
+This control enables Rust's powerful zero-cost abstractions,
+and its incredible performance.
+
+Now Alex is going to tell you what we've accomplished with it.
 
 <!-- Rust Today -->
 

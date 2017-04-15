@@ -8,7 +8,8 @@ projections to the future of Rust, looking beyond the Age of Unsafety.
 
 - [slides](https://brson.github.io/the-end-of-unsafety)
 - [script](script.md)
-- [outline](outline.md)
+- [links](links.md) - memory unsafety research, image credits
+- [outline](outline.md) - old, rough outline
 
 ## Setup
 

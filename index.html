@@ -189,11 +189,11 @@
             <p>1972 &nbsp; → &nbsp; whenever</p>
           </div>
 
-          <div>
+          <aside class="notes">
             <p>First we're going to visit The Age of Unsafety, in
             which C was conceived, and the entire computing world we
             know was built on top of it.</p>
-          </div>
+          </aside>
         </section>
 
 	<section id="OV2" data-transition="none">
@@ -904,7 +904,7 @@ fn main() {
 }
 
 fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
-    println!("this balloon looks like {}", b);
+    b.draw(Drawing::HappyFace);
 }
           </code></pre>
           <div class="fragment" style="display: none" id="rmut-trigger"/>
@@ -921,18 +921,19 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
           <aside class="notes">
             <p>Here's a summary of ownership and borrowing.</p>
 
-            <p>This is how Rust thinks about all resources. A
-            convenient way to think of this system is that Rust shared
-            and mutable references provide <em>reader-writer
-            locks</em> over owned values. Rust provides in access
-            control to all memory, and that access control is
-            completely determined statically, with no runtime
-            overhead.</P>
+            <p>This is how Rust sees everything. A convenient way to
+            think of this is that Rust <em>shared and mutable
+            references</em> provide <em>reader-writer locks</em>
+            over <em>owned values</em>. Rust has built-in <em>access
+            control</em> to all memory, and it is completely determined
+            statically, with no runtime overhead.</p>
 
-            <p>This system provides fine, deterministic, static, and
-              foolproof control over resources. And this control enables
-              Rust's powerful <em>zero-cost abstractions</em>, and it's
-              <em>incredible performance</em>.</p>
+            <p>This control enables Rust's powerful <em>zero-cost
+            abstractions</em>, and its <em>incredible
+            performance</em>.</p>
+
+            <p>Now Alex is going to tell you what we've accomplished
+            with it.</p>
           </aside>
         </section>
 
@@ -1232,7 +1233,7 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
             abstractions. Everything else is provided via Rust's
             package manager <em>Cargo and the library
             ecosystem</em>. This was a very intentional decision to
-            ensure both a high quality core product, and to
+            ensure both a high quality <em>core product</em>, and to
             encourage <em>free and rapid experimentation</em> in the
             Rust community, and it has paid off well - we see great
             libraries coming out of the Rust community, and as they
