@@ -112,6 +112,51 @@ longer up to the task of securing it.
 
 That is why Rust exists.
 
+## WHAT
+
+Rust provides the very best performance without sacrificing memory
+saftey.
+
+## DORIG
+
+This was an important early constraint, and it influenced out ultimate
+solution.
+
+## DACT
+
+For our use cases we can tolerate no runtime abstraction costs.
+
+It was only after reaching an important _insight_ about the design of
+Rust that we realized not only the importance of zero-cost
+abstractions, but also the attainability of zero-cost abstractions.
+
+## KEY
+
+And the key question that drove that _insight_ was...
+
+## SUC1
+
+The runtimeless ownership model is a powerful base to build the entire
+computing stack on top of.
+
+From the very beginning, Rust has been designed for production.
+
+## SUC3
+
+With Rust systems programming is easy and accessible.
+
+In Rust we are building a new systems programming culture, and it is
+going to be expansive and welcoming and accessible, and it is going to
+change the nature of systems programming for the better.
+
+
+
+## SUM
+
+This control enables Rust's powerful zero-cost abstractions, and its
+incredible performance.
+
+
 
 ## FUT
 

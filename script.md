@@ -31,7 +31,7 @@ That is why Rust exists.
 ## WHO
 
 My name is Brian Anderson, and this is my friend Alex Crichton, and we
-are both members of the Rust programming languages core team, as well
+are both on the core team of the Rust programming language, as well
 as being employed to work on Rust by Mozilla Research.
 
 Alex will you introduce yourself?
@@ -59,12 +59,12 @@ We're going to talk a lot about Rust later, but the first part of this
 talk is mostly about the motivation for Rust. Before we get into
 that though, a little bit about what Rust is.
 
-## WHATRUST
+## WHAT
 
 Rust is first and foremost a high-performance, memory safe, systems
 programming language. And when I say "high-performance", I don't just
-mean it's fast, I mean it's competitive with the very fastest
-programming languages. Think C, C++, and Fortran.
+mean it's fast, I mean it's among the very fastest programming
+languages. Think C, C++, and Fortran.
 
 And when I say "memory safe" I mean that Rust software does not crash,
 at least not in the way that languages like C and C++ do, where a
@@ -199,11 +199,10 @@ But these assumptions did not hold.
 
 ## DACT
 
-And the reason that both these original assumptions didn't hold
-boils down to performance - for our use cases we can tolerate no
-runtime abstraction costs, and both garbage collection, even if
-it is single-threaded, and green-threading, impose significant
-overhead.
+And the reason that both these original assumptions didn't hold boils
+down to performance - for our use cases we can tolerate no runtime
+abstraction costs, and both garbage collection and green-threading
+impose significant overhead.
 
 But it took us a long time to come to this conclusion, and we only
 came to it indirectly. For a long time we thought these costs would be
@@ -522,6 +521,8 @@ to encourage free and rapid experimentation in the Rust community, and
 it has paid off well - we see great libraries coming out of the Rust
 community, and as they mature they will be adopted into the Rust
 cannon.
+
+## SUCC3
 
 The convenience, flexibility, and robustness of the Rust system is
 additionally going to vastly expand the audience of systems

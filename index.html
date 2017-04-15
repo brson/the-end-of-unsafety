@@ -76,8 +76,8 @@
 
           <aside class="notes">
             <p>My name is Brian Anderson, and this is my friend Alex
-            Crichton, and we are both members of the Rust programming
-            languages core team, as well as being employed to work on
+            Crichton, and we are both on the core team of the Rust
+            programming language, as well as being employed to work on
             Rust by Mozilla Research.</p>
 
             <p>Alex will you introduce yourself?</p>
@@ -118,7 +118,7 @@
           </aside>
         </section>
 
-        <section id="WHATRUST" data-transition="slide-in fade-out" data-transition-speed="fast">
+        <section id="WHAT" data-transition="slide-in fade-out" data-transition-speed="fast">
           <h3>Rust</h3>
           <ul>
             <li>Top-tier performance &#x2000; <span>(like C/C++ or better)</span></li>
@@ -134,9 +134,9 @@
             <p>Rust is first and foremost
             a <em>high-performance</em>, <em>memory safe</em>, systems
             programming language. And when I say "high-performance", I
-            don't just mean it's fast, I mean it's competitive with
-            the very fastest programming languages. <em>Think C, C++,
-            and Fortran</em>.</p>
+            don't just mean it's fast, I mean it's among the very
+            fastest programming languages. <em>Think C, C++, and
+            Fortran</em>.</p>
 
             <p>And when I say "memory safe" I mean that Rust software
             does not crash, at least not in the way that languages
@@ -534,6 +534,7 @@
           <h3>Rust's actual design / requirements</h3>
           <ul>
             <li>Memory safety</li>
+            <li>Ultimate performance</li>
             <li>No GC or runtime at all</li>
             <li>Traditional OS threads and concurrency</li>
           </ul>
@@ -542,9 +543,8 @@
             <p>And the reason that both these original assumptions
             didn't hold boils down to <em>performance</em> - for our
             use cases we can <em>tolerate no runtime abstraction
-            costs</em>, and both garbage collection, even if it is
-            single-threaded, and green-threading, impose significant
-            overhead.</p>
+            costs</em>, and both garbage collection and
+            green-threading impose significant overhead.</p>
 
             <p>But it took us a <em>long time</em> to come to
             this <em>conclusion</em>, and we only came to it
@@ -1214,8 +1214,6 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
           <h3>Why Rust will succeed</h3>
           <ul>
             <li>Flexible ecosystem design</li>
-            <li>Expanded systems audience</li>
-            <li>Strong culture</li>
           </ul>
 
           <aside class="notes">
@@ -1238,7 +1236,17 @@ fn examine_balloon(b: <span class="rmut-em">&mut</span> Balloon) {
             Rust community, and it has paid off well - we see great
             libraries coming out of the Rust community, and as they
             mature they will be adopted into the Rust cannon.</p>
+          </aside>
+        </section>
 
+        <section id="SUC3">
+          <h3>Why Rust will succeed</h3>
+          <ul>
+            <li>Expanded systems audience</li>
+            <li>Strong culture</li>
+          </ul>
+
+          <aside class="notes">
             <p>The convenience, flexibility, and robustness of the Rust
             system is additionally going to vastly <em>expand the
             audience of systems programmers</em>.</p>
