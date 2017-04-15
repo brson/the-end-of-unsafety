@@ -86,11 +86,42 @@ The Past, Present and Future of of the Rust Programming Language.
 # section timings
 
 - intro - 5 minutes
-- age of unsafety - 10 minutes?
-- creation of rust - 10 minutes?
-- rust today - 10 minutes?
-- rust future - 15 minutes
+- age of unsafety - 10 minutes
+- creation of rust - 10 minutes
+- rust today - 10 minutes
+- rust future - 10 minutes
 
 - intro - 5.30
 - creation - 8
 - future - 13
+
+# key phrases to nail
+
+## BARB
+
+We live in an Age of Unsafety.
+
+This age began in 1972, with the C language, and with Unix, and today
+it encompasses all that we see. Unsafety is at the foundation of the
+computing world.
+
+And now we are beset on all sides. The barbarians are at the gate.
+
+The internet is no longer safe, and the tools of the past are no
+longer up to the task of securing it.
+
+That is why Rust exists.
+
+
+## FUT
+
+But that's just what _we're_ doing to enable Rust _developers_. What's
+really going to happen over the next few years is that a lot of
+world-class software is going to be written in Rust. And that software
+is going to be reliable, reusable, and maintainable in ways that
+software written in memory-unsafe languages is not. These programs are
+going to enjoy significant advantages over their competition, and it
+will become increasingly difficult to choose C and C++ over Rust.
+
+The legacy of C and C++ will continue for many decades, but the
+future is in safety. And the future is written in Rust.

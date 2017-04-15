@@ -25,6 +25,10 @@ Reveal.addEventListener('slidechanged', function(event) {
   let id = slide.id;
   let slide_name_div = document.getElementById("slide-name");
   slide_name_div.innerHTML = id;
+
+  if (slide.className.indexOf("noid") != -1) {
+    slide_name_div.innerHTML = "";
+  }
 });
 
 Reveal.addEventListener('fragmentshown', function(event) {
