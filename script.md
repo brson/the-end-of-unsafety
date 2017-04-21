@@ -520,7 +520,7 @@ intentional decision to ensure both a high quality core product, and
 to encourage free and rapid experimentation in the Rust community, and
 it has paid off well - we see great libraries coming out of the Rust
 community, and as they mature they will be adopted into the Rust
-cannon.
+canon.
 
 ## SUCC3
 
